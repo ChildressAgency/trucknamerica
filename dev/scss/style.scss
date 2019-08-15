@@ -12,9 +12,12 @@
 @import "variables";
 
 /*******************************
-* bootstrap scss files
+* vendor scss files
 *******************************/
 @import "includes/bootstrap";
+
+@import "includes/slick";
+@import "includes/slick-theme";
 
 /******************************
 * main scss file with gobal
