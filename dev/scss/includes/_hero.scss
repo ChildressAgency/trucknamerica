@@ -1,0 +1,58 @@
+.hero-caption{
+  position:relative;
+  z-index:3;
+  color: #fff;
+  width: 100%;
+  padding: 80px 15px;
+
+  h2{
+    margin-bottom:25px;
+  }
+
+  .btn-alt{
+    margin-top:60px;
+  }
+
+  @include media-breakpoint-up(sm){
+    width:75%;
+  }
+
+  @include media-breakpoint-up(lg){
+    width:50%;
+  }
+}
+
+.half-overlay{
+  position:absolute;
+  z-index:1;
+  height:100%;
+  width:100%;
+  padding: 15px;
+  top:0;
+  left:0;
+  background-color:rgba(0,0,0,.5);
+
+  @include media-breakpoint-up(sm){
+    width:75%;
+  }
+
+  @include media-breakpoint-up(lg){
+    width:50%;
+  }
+}
+
+#hero-carousel{
+  .carousel-indicators{
+    width:50%;
+    margin-left:0;
+    margin-right:0;
+    justify-content:flex-end;
+
+    li{
+      height:20px;
+      width:20px;
+      border-radius:50%;
+      margin-right:25px;
+    }
+  }
+}
