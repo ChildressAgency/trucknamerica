@@ -1,0 +1,182 @@
+#featured-products{
+  margin-top:60px;
+  margin-bottom:60px;
+
+  .card{
+    border:none;
+    text-align:center;
+
+    .card-img-top{
+      border-radius:0;
+    }
+  }
+
+  .card-body{
+    padding:8px 20px;
+  }
+
+  .card-title{
+    font-size:19px;
+    margin-bottom:0;
+  }
+
+  .card-footer{
+    border:none;
+    background-color: $brand-color;
+    padding:3px 20px;
+
+    a{
+      color:#fff;
+
+      &:hover,
+      &:focus{
+        color: #fff;
+      }
+    }
+  }
+}
+
+#quick-links{
+  background-color: $light-grey;
+  padding-top:25px;
+  padding-bottom:25px;
+
+  .img-link a span{
+    font-size:32px;
+    text-transform:uppercase;
+    text-align:center;
+    line-height:1.2em;
+  }
+}
+
+#partners{
+  padding-top:60px;
+  padding-bottom:60px;
+  text-align:center;
+
+  .partner-prev,
+  .partner-next{
+    position:absolute;
+    display:block;
+    height:50px;
+    width:50px;
+    line-height:0;
+    top:50%;
+    transform:translateY(-50%);
+    padding:0;
+    border:none;
+    background-color:transparent;
+    color: $dark-grey;
+    opacity:.5;
+    font-size:60px;
+
+    &:hover{
+      opacity:1;
+    }
+  }
+
+
+  .slick-slider{
+    padding-left:60px;
+    padding-right:60px;
+  }
+
+  .partner-next{
+    left:20px;
+  }
+  .partner-prev{
+    right:20px;
+  }
+}
+
+#footer-top{
+  background-color: $light-grey;
+  font-size:16px;
+  padding-top:40px;
+  padding-bottom:40px;
+
+  h3{
+    font-size:18px;
+    text-transform:uppercase;
+    font-weight: $font-weight-bold;
+  }
+
+  .table{
+    caption{
+      caption-side:top;
+      text-transform:uppercase;
+      color: #999;
+    }
+
+    td{
+      color:#999;
+      padding-top:0;
+      padding-bottom:0;
+    }
+    th{
+      color: $brand-color;
+      font-weight: $font-weight-bold;
+      padding-top:0;
+      padding-bottom:0;
+    }
+  }
+
+  .holiday-hours{
+    color: $brand-color;
+    font-weight: $font-weight-bold;
+
+    &:hover,
+    &:focus{
+      color: $brand-color;
+      text-decoration:underline;
+    }
+  }
+
+  p>small{
+    font-style:italic;
+  }
+}
+
+#footer-middle{
+  padding-top:60px;
+  padding-bottom:60px;
+  background-color: $brand-color-dark;
+  color: #fff;
+
+  h3{
+    font-size:18px;
+    text-transform:uppercase;
+  }
+
+  a{
+    color: #999;
+    font-size:16px;
+
+    &:hover,
+    &:focus{
+      color:#999;
+      text-decoration:underline;
+    }
+  }
+
+  .find-us{
+    text-align:center;
+  }
+
+  .social a{
+    font-size:24px;
+    color:#fff;
+
+    & + a{
+      margin-left:10px;
+    }
+  }
+}
+
+#footer-bottom{
+  background-color: $brand-color-darker;
+  color: #999;
+  font-size:16px;
+  padding-top:25px;
+  padding-bottom:60px;
+}

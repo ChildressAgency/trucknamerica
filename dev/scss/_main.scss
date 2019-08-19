@@ -4,12 +4,44 @@ body{
   color: #000;
 }
 
+h1{
+  font-size:46px;
+}
+h2{
+  font-size:42px;
+}
+
+.title-subtitle{
+  font-weight: $font-weight-bold;
+  color: $alt-color;
+
+  small{
+    display:block;
+    font-weight: $font-weight-bold;
+    color: $brand-color;
+    font-size: 75%;
+  }
+}
+
 a{
   transition: all .3s ease;
 }
 
 .btn-main{
+  display:inline-block;
+  color: #fff;
+  background-color: $brand-color;
+  padding:5px 40px;
+  border-radius:24px;
+  border: 1px solid $light-grey;
+  font-size:18px;
 
+  &:hover,
+  &:focus{
+    text-decoration: none;
+    background-color: $alt-color;
+    color: #fff;
+  }
 }
 
 .btn-alt{
@@ -25,5 +57,117 @@ a{
     color:#fff;
     background-color: $brand-color;
     text-decoration:none;
+  }
+}
+
+
+.light-overlay,
+.blue-overlay,
+.dark-overlay{
+  position:absolute;
+  height:100%;
+  width:100%;
+  top:0;
+  left:0;
+  z-index:1;
+}
+
+.light-overlay{
+  background-color:rgba(0,0,0,.3);
+}
+
+.blue-overlay{
+  background-color:rgba($brand-color, .5);
+}
+.dark-overlay{
+  background-color:rgba(0,0,0,.5);
+}
+
+.img-link{
+  height:175px;
+  width:242px;
+  margin: 10px;
+  position:relative;
+  overflow:hidden;
+
+  &.double{
+    @include media-breakpoint-up(lg){
+      width: 516px;
+    }
+  }
+
+  .img-link-inner{
+    height:100%;
+    width:100%;
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-position:center center;
+    transition:all .3s ease;
+
+  }
+
+  a{
+    position:absolute;
+    z-index:3;
+    height:100%;
+    width:100%;
+    top:0;
+    left:0;
+    color:#fff;
+    padding:10px;
+
+    &:hover,
+    &:focus{
+      text-decoration: none;
+      color: #fff;
+    }
+
+    span{
+      position:absolute;
+      padding:10px;
+
+      &.bottom-left{
+        left:0;
+        bottom:0;
+        text-align:left;
+      }
+      &.top-right{
+        top:0;
+        right:0;
+        text-align:right
+      }
+      &.top-left{
+        top:0;
+        left:0;
+        text-align:left;
+      }
+      &.bottom-right{
+        right:0;
+        bottom:0;
+        text-align:right;
+      } 
+      &.center-center{
+        top:50%;
+        left:50%;
+        transform:translate(-50%, -50%);
+        text-align:center;
+      }
+      &.top-center{
+        top:0;
+        left:50%;
+        transform:translateX(-50%);
+        text-align:center;
+      }
+      &.bottom-center{
+        bottom:0;
+        left:50%;
+        transform:translateX(-50%);
+        text-align:center;
+      }
+    }
+  }
+
+  &:hover .img-link-inner{
+    transform: scale(1.2);
   }
 }
