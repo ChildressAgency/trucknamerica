@@ -83,6 +83,7 @@
 
   .input-group{
     width:50%;
+    flex-wrap:nowrap;
   }
 
   .search-field{
@@ -103,5 +104,23 @@
     border-top-right-radius: 50px;
     border-bottom-right-radius: 50px;
     padding-right:15px;
+  }
+
+  @include media-breakpoint-down(sm){
+    .form-inline{
+      display:block;
+    }
+
+    .search-bar-label{
+      text-align:center;
+
+      span{
+        display:inline;
+      }
+    }
+
+    .input-group{
+      width:100%;
+    }
   }
 }
