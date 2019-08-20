@@ -33,4 +33,20 @@ jQuery(document).ready(function($){
       }
     ]
   });
+
+  if(typeof $.fn.waypoint !== 'undefined'){
+    var waypoint = $('.timeline-year').waypoint({
+      handler: function(direction){
+        moveMarker(direction, this.element);
+      },
+      offset: '45%'
+    });
+  }
+
+  function moveMarker(direction, $newYear){
+    var $oldYear = $('.timeline-year.active');
+
+    $oldYear.removeClass('active');
+    $($newYear).addClass('active');
+  }
 });

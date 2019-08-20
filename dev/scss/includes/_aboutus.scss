@@ -1,7 +1,7 @@
 .marker-line{
   background-color: #ccc;
-  border-right: 15px solid #5d5d5d;
-  border-bottom: 15px solid #5d5d5d;
+  border-right: 15px solid #333;
+  border-bottom: 15px solid #333;
   border-bottom-right-radius: 60px;
   height:100%;
 }
@@ -10,11 +10,58 @@
   padding-top:120px;
 }
 
-.timeline-event{
+.timeline-section{
   margin-top:40px;
   margin-bottom:40px;
 }
 
 .timeline-years{
   margin-left:40px;
+  height:100%;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.timeline-year{
+  font-size: 30px;
+  font-weight: $font-weight-bold;
+  color: $alt-color;
+  display: block;
+  position:relative;
+
+  &.active{
+    font-size:42px;
+    margin-left:40px;
+
+    &::before{
+      content:"";
+      position:absolute;
+      height: 226px;
+      width:81px;
+      top:-78px;
+      left:-95px;
+      background-image:url(../wp-theme-files/images/timeline-marker.png);
+      background-repeat:no-repeat;
+    }
+  }
+}
+
+.timeline-event{
+  margin-top:40px;
+  margin-bottom:40px;
+  padding-left:40px;
+}
+
+.timeline-image-section{
+  background-color: $light-grey;
+  position:relative;
+  text-align:center;
+  display:flex;
+  justify-content:center;
+}
+.timeline-image{
+  max-height:250px;
+  display:inline-block;
+  margin:-25px 20px;
 }
