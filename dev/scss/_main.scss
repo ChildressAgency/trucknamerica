@@ -25,6 +25,12 @@ h2{
 
 a{
   transition: all .3s ease;
+  color: $brand-color;
+
+  &:hover,
+  &:focus{
+    color: $alt-color;
+  }
 }
 
 .btn-main{
@@ -60,6 +66,10 @@ a{
   }
 }
 
+article{
+  margin-top:60px;
+  margin-bottom:60px;
+}
 
 .light-overlay,
 .blue-overlay,
