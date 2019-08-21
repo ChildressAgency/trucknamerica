@@ -35,6 +35,8 @@ jQuery(document).ready(function($){
   });
 
   if(typeof $.fn.waypoint !== 'undefined'){
+    $('.timeline-year').first().addClass('active');
+    
     var waypoint = $('.timeline-year').waypoint({
       handler: function(direction){
         moveMarker(direction, this.element);
