@@ -122,18 +122,16 @@
   }
 
   .holiday-hours{
-    color: $brand-color;
-    font-weight: $font-weight-bold;
-
-    &:hover,
-    &:focus{
+    h4{
       color: $brand-color;
-      text-decoration:underline;
+      font-weight: $font-weight-bold;
+      font-size:16px;
     }
-  }
 
-  p>small{
-    font-style:italic;
+    p{
+      margin-bottom:0;
+      font-style: italic;
+    }
   }
 }
 
