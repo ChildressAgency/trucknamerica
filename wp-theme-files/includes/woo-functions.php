@@ -1,6 +1,4 @@
 <?php
-
-
 //header cart
 add_action('trucknamerica_show_cart_link', 'trucknamerica_cart_link');
 function trucknamerica_cart_link(){
@@ -19,4 +17,12 @@ function trucknamerica_update_header_cart_count($fragments){
   $fragments['a.header-cart'] = ob_get_clean();
 
   return $fragments;
+}
+
+//call for price
+add_filter('woocommerce_empty_price_html', 'trucknamerica_empty_price_html');
+add_filter('woocommerce_variable_empty_price_html', 'trucknamerica_empty_price_html');
+add_filter('woocommerce_variation_empty_price_html', 'trucknamerica_empty_price_html');
+function trucknamerica_empty_price_html(){
+  return 'Call for price';
 }
