@@ -46,6 +46,22 @@ function trucknamerica_acf_options_page(){
     'menu_title' => esc_html__('Hero Settings', 'trucknamerica'),
     'menu_slug' => 'hero-settings',
     'capability' => 'edit_posts',
+    'icon_url' => 'dashicons-slides',
+    'position' => 7,
     'redirect' => false
+  ));
+
+  acf_add_options_page(array(
+    'page_title' => esc_html__('General Settings', 'trucknamerica'),
+    'menu_title' => esc_html__('General Settings', 'trucknamerica'),
+    'menu_slug' => 'general-settings',
+    'capability' => 'edit_posts',
+    'redirect' => false
+  ));
+
+  acf_add_options_sub_page(array(
+    'page_title' => esc_html__('Footer Settings', 'trucknamerica'),
+    'menu_title' => esc_html__('Footer Settings', 'trucknamerica'),
+    'parent_slug' => 'general-settings'
   ));
 }
