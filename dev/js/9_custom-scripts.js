@@ -10,8 +10,8 @@ jQuery(document).ready(function($){
     slidesToScroll: 1,
     autoplay: true,
     centerMade:true,
-    prevArrow: '<button type="button" class="partner-prev"><i class="fas fa-angle-right"></i></button>',
-    nextArrow: '<button type="button" class="partner-next"><i class="fas fa-angle-left"></i></button>',
+    nextArrow: '<button type="button" class="partner-prev"><i class="fas fa-angle-right"></i></button>',
+    prevArrow: '<button type="button" class="partner-next"><i class="fas fa-angle-left"></i></button>',
     responsive: [
       {
         breakpoint: 991,
