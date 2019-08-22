@@ -150,17 +150,17 @@ function trucknamerica_header_fallback_menu(){ ?>
   </div>
 <?php }
 
-function trucknamerica_can_display_hero_slide($slide){
+function trucknamerica_can_display_hero_slide($start_date = '', $end_date = ''){
   $today = (int)date('Ymd');
 
-  if(isset($slide['start_date']) && $slide['start_date'] !== ''){
-    if($today < (int)$slide['start_date']){
+  if($start_date !== ''){
+    if($today < (int)$start_date){
       return false;
     }
   }
 
-  if(isset($slide['end_date']) && $slide['end_date'] !== ''){
-    if($today > (int)$slide['end_date']){
+  if($end_date !== ''){
+    if($today > (int)$end_date){
       return false;
     }
   }
