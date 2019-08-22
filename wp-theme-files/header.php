@@ -20,7 +20,7 @@
         <div class="phone-social">
           <?php $main_phone = get_field('main_phone', 'option'); ?>
           <a href="tel:<?php echo $main_phone; ?>" class="phone"><?php echo esc_html($main_phone); ?></a>
-          <?php get_template_part('partials', 'social'); ?>
+          <?php get_template_part('partials/social'); ?>
         </div>
         <div class="login-cart ml-auto">
           <?php if(is_user_logged_in()): ?>
