@@ -1,8 +1,8 @@
 <?php get_template_part('partials/products', 'featured'); ?>
 
-<?php get_template_part('partials', 'quick_links'); ?>
+<?php get_template_part('partials/quick_links'); ?>
 
-<?php get_template_part('partials', 'partners'); ?>
+<?php get_template_part('partials/partners'); ?>
 
   <footer id="footer">
     <section id="footer-top">
@@ -29,7 +29,7 @@
             </table>
 
             <div class="holiday-hours">
-              <a href="<?php esc_url(home_url('holiday-hours-of-operation')); ?>"><?php echo esc_html__('Holiday Hours of Operation', 'trucknamerica'); ?></h4>
+              <a href="<?php echo esc_url(home_url('holiday-hours-of-operation')); ?>"><?php echo esc_html__('Holiday Hours of Operation', 'trucknamerica'); ?></a>
               <p><?php echo get_field('hours_of_operation_note', 'option'); ?></p>
             </div>
           </div>
@@ -89,7 +89,7 @@
                 'container_id' => '',
                 'container_class' => '',
                 'menu_id' => '',
-                'menu_class' => '',
+                'menu_class' => 'list-unstyled',
                 'echo' => true,
                 'fallback_cb' => '',
                 'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
@@ -100,7 +100,7 @@
           </div>
           <div class="col-lg-3 col-md-6 find-us">
             <h3><?php echo esc_html__('Find Us On', 'trucknamerica'); ?></h3>
-            <?php get_template_part('partials', 'social'); ?>
+            <?php get_template_part('partials/social'); ?>
 
             <h3 class="mt-5"><?php echo esc_html__('Affiliations', 'trucknamerica'); ?></h3>
             <?php $affiliations_img = get_field('affiliations_image', 'option'); ?>
