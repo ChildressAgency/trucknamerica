@@ -13,7 +13,7 @@
             $quick_link = get_sub_field('quick_link');
           ?>
           <div class="img-link">
-            <div class="img-link-inner" style="background-image:url(<?php echo esc_url($quick_link_img); ?>);"></div>
+            <div class="img-link-inner" style="background-image:url(<?php echo esc_url($quick_link_img['url']); ?>);"></div>
             <a href="<?php echo esc_url($quick_link['url']); ?>">
               <span class="center-center"><?php echo esc_html($quick_link['title']); ?></span>
             </a>
