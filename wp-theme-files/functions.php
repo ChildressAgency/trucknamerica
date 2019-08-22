@@ -68,7 +68,7 @@ add_action('wp_enqueue_scripts', 'trucknamerica_styles');
 function trucknamerica_styles(){
   wp_register_style(
     'google-fonts',
-    'https://fonts.googleapis.com/css?family=Maitree:400,700|Nunito+Sans:400,600,700|Nunito:700'
+    'https://fonts.googleapis.com/css?family=Cabin+Condensed:400,700&display=swap'
   );
 
   wp_register_style(
