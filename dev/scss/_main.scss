@@ -136,22 +136,22 @@ article{
       position:absolute;
       padding:10px;
 
-      &.bottom-left{
+      &.left-bottom{
         left:0;
         bottom:0;
         text-align:left;
       }
-      &.top-right{
+      &.right-top{
         top:0;
         right:0;
         text-align:right
       }
-      &.top-left{
+      &.left-top{
         top:0;
         left:0;
         text-align:left;
       }
-      &.bottom-right{
+      &.right-bottom{
         right:0;
         bottom:0;
         text-align:right;
@@ -162,13 +162,13 @@ article{
         transform:translate(-50%, -50%);
         text-align:center;
       }
-      &.top-center{
+      &.center-top{
         top:0;
         left:50%;
         transform:translateX(-50%);
         text-align:center;
       }
-      &.bottom-center{
+      &.center-bottom{
         bottom:0;
         left:50%;
         transform:translateX(-50%);
