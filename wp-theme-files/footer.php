@@ -30,7 +30,7 @@
 
             <div class="holiday-hours">
               <a href="<?php esc_url(home_url('holiday-hours-of-operation')); ?>"><?php echo esc_html__('Holiday Hours of Operation', 'trucknamerica'); ?></h4>
-              <?php echo get_field('holiday_hours_of_operation_note', 'option'); ?>
+              <p><?php echo get_field('hours_of_operation_note', 'option'); ?></p>
             </div>
           </div>
         </div>
