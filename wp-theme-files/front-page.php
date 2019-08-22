@@ -1,7 +1,7 @@
 <?php get_header(); ?>
   <main id="main">
     <div class="container">
-      <?php get_template_part('partials', 'banner'); ?>
+      <?php get_template_part('partials/banner'); ?>
 
       <?php get_template_part('partials/products', 'top_categories'); ?>
 
@@ -72,7 +72,7 @@
                 <div id="testimonials-carousel" class="carousel slide carousel-heights" data-ride="carousel">
                   <ol class="carousel-indicators">
                     <?php for($c = 0; $c < count($testimonials); $c++): ?>
-                      <li data-target="#testimonials-carousel" data-slide-to="<?php echo $c; ?>"<?php if($t == 0){ echo ' class="active"'; } ?>></li>
+                      <li data-target="#testimonials-carousel" data-slide-to="<?php echo $c; ?>"<?php if($c == 0){ echo ' class="active"'; } ?>></li>
                     <?php endfor; ?>
                   </ol>
 
