@@ -2,9 +2,18 @@
   margin-top:60px;
   margin-bottom:60px;
 
+  .card-deck{
+    justify-content: center;
+  }
+
   .card{
     border:none;
     text-align:center;
+    align-self: center;
+    flex: none;
+    margin-top: 40px;
+    width:232px;
+    flex-wrap: wrap;
 
     .card-img-top{
       border-radius:0;
