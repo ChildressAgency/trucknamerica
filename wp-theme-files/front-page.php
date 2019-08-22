@@ -113,7 +113,9 @@
           </div>
           <a href="<?php echo esc_url('instagram', 'option'); ?>" class="instagram large" title="Instagram" target="_blank"><i class="fab fa-instagram"></i><span class="sr-only">Instagram</span></a>
         </header>
-        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/instagram-placeholder.jpg" class="img-fluid" alt="" />
+        <div class="instagram-feed">
+          <?php echo do_shortcode('[instagram-feed]'); ?>
+        </div>
       </div>
     </div>
   </section>
