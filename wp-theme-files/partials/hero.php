@@ -7,7 +7,7 @@
         <ol class="carousel-indicators">
 
           <?php $i = 0; foreach($hero_slides as $slide): ?>
-            <?php if(trucknamerica_can_display_hero_slide($slide)): ?>
+            <?php if(trucknamerica_can_display_hero_slide($slide['start_date'], $slide['end_date'])): ?>
               <li data-target="#hero-carousel" data-slide-to="<?php echo $i; ?>"<?php if($i == 0){ echo ' class="active"'; } ?>></li>
             <?php endif; ?>
           <?php $i++; endforeach; reset($hero_slides); ?>
@@ -17,7 +17,7 @@
         <div class="carousel-inner">
 
           <?php $s = 0; foreach($hero_slides as $slide): ?>
-            <?php if(trucknamerica_can_display_hero_slide($slide)): ?>
+            <?php if(trucknamerica_can_display_hero_slide($slide['start_date'], $slide['end_date'])): ?>
 
               <?php 
                 $hero_image = $slide['image'];
