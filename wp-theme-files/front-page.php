@@ -9,7 +9,7 @@
         <div class="row no-gutters">
           <?php $service_1_image = get_field('service_block_1_image'); ?>
 
-          <div class="col-md-6 left-side d-flex align-items-center" style="background-image:url(<?php echo $service_1_image['url']); ?>);">
+          <div class="col-md-6 left-side d-flex align-items-center" style="background-image:url(<?php echo $service_1_image['url']; ?>);">
             <div class="services-content">
               <h2><?php echo esc_html(get_field('service_block_1_title')); ?></h2>
               <p><?php echo esc_html(get_field('service_block_1_description')); ?></p>
