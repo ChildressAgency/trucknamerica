@@ -1,7 +1,9 @@
 <?php 
   $banner = get_field('site_banner', 'option');
   if($banner): ?>
-    <div class="banner">
-      <img src="<?php echo esc_url($banner['url']); ?>" class="img-fluid d-block mx-auto" alt="<?php echo esc_attr($banner['alt']); ?>" />
-    </div>
+    <?php if(trucknamerica_can_display_hero_slide(get_field('banner_start_date'), get_field('banner_end_date'))): ?>
+      <div class="banner">
+        <img src="<?php echo esc_url($banner['url']); ?>" class="img-fluid d-block mx-auto" alt="<?php echo esc_attr($banner['alt']); ?>" />
+      </div>
+    <?php endif; ?>
 <?php endif; ?>
