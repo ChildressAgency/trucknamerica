@@ -2,7 +2,7 @@
 <div class="row">
   <?php
     $states = get_terms(array(
-      'taxonomy' => 'locations',
+      'taxonomy' => 'states',
       'orderby' => 'name',
       'order' => 'ASC'
     ));
@@ -32,7 +32,7 @@
               $locations->the_post();
               echo '<tr>';
               echo '<th scope="row">' . esc_html(get_the_title()) . '</th>';
-              echo '<td>' . esc_html(get_field('location_main_phone')) . '</td>';
+              echo '<td>' . esc_html(get_field('location_main_phone_number')) . '</td>';
             }
           }
       echo '</tbody></table></div>';
