@@ -38,6 +38,6 @@
 
     </div>
     <p class="text-center mt-5">
-      <a href="<?php echo esc_url(home_url('shop')); ?>" class="btn-main"><?php echo esc_html__('Shop All', 'option'); ?></a>
+      <a href="<?php echo esc_url(home_url('shop')); ?>" class="btn-main"><?php echo esc_html__('Shop All', 'trucknamerica'); ?></a>
     </p>
   </section>
