@@ -35,3 +35,17 @@ add_action('plugins_loaded', 'trucknamerica_load_textdomain');
 function trucknamerica_load_textdomain(){
   load_plugin_textdomain('trucknamerica', false, basename(TRUCKNAMERICA_PLUGIN_DIR) . '/languages');
 }
+
+require_once TRUCKNAMERICA_PLUGIN_DIR . '/includes/trucknamerica-create-post-types.php';
+add_action('init', 'trucknamerica_create_post_types');
+
+add_action('acf/init', 'trucknamerica_acf_options_page');
+function trucknamerica_acf_options_page(){
+  acf_add_options_page(array(
+    'page_title' => esc_html__('Hero Settings', 'trucknamerica'),
+    'menu_title' => esc_html__('Hero Settings', 'trucknamerica'),
+    'menu_slug' => 'hero-settings',
+    'capability' => 'edit_posts',
+    'redirect' => false
+  ));
+}

@@ -10,30 +10,8 @@
         <div class="row">
           <div class="col-md-8">
 
-            <?php if(have_rows('locations', 'option')): ?>
-              <h3><?php echo esc_html__('Our Locations', 'trucknamerica'); ?></h3>
+            <?php get_template_part('partials/footer', 'locations'); ?>
 
-              <div class="row">
-                <?php $l = 0; while(have_rows('locations', 'option')): the_row(); ?>
-
-                  <?php if($l % 2 == 0){ echo '<div class="clearfix"></div>'; } ?>
-                  <div class="col-md-6">
-                    <table class="table table-borderless">
-                      <caption><?php echo esc_html(get_sub_field('location_area'); ?></caption>
-                      <tbody>
-                        <?php if(have_rows('area_locations')): while(have_rows('area_locations')): the_row(); ?>
-                          <tr>
-                            <th scope="row"><?php echo esc_html(get_sub_field('area_location')); ?></th>
-                            <td><?php echo esc_html(get_sub_field('area_location_phone')); ?></td>
-                          </tr>
-                        <?php endwhile; endif; ?>
-                      </tbody>
-                    </table>
-                  </div>
-
-                <?php endwhile; ?>
-              </div>
-            <?php endif; ?>
           </div>
 
           <div class="col-md-4">
@@ -51,8 +29,8 @@
             </table>
 
             <div class="holiday-hours">
-              <h4><?php echo esc_html__('Holiday Hours of Operation', 'trucknamerica'); ?></h4>
-              <?php echo get_field('holiday_hours_of_operation', 'option'); ?>
+              <a href="<?php esc_url(home_url('holiday-hours-of-operation')); ?>"><?php echo esc_html__('Holiday Hours of Operation', 'trucknamerica'); ?></h4>
+              <?php echo get_field('holiday_hours_of_operation_note', 'option'); ?>
             </div>
           </div>
         </div>
