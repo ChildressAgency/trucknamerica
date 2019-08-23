@@ -18,7 +18,7 @@ function trucknamerica_wrapper_end(){
 
 add_action('woocommerce_before_shop_loop', 'trucknamerica_shop_loop_wrapper_open', 15);
 function trucknamerica_shop_loop_wrapper_open(){
-  echo '<div class="row">
+  echo '<div class="row tna-product-loop">
           <div class="col-md-8 col-lg-9 order-md-12">';
 }
 
@@ -97,3 +97,11 @@ function trucknamerica_template_loop_category_link_close($category){
 }
 
 remove_action('woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10);
+
+add_action('woocommerce_single_product_summary', 'trucknamerica_show_contact_buttons', 90);
+function trucknamerica_show_contact_buttons(){
+  echo '<div class="product-contact-buttons">';
+  echo '<a href="#" class="btn-call-now btn-alt"><img src="' . get_stylesheet_directory_uri() . '/images/icon-call-now.png" class="" alt="Call Now" />Call Now</a>';
+  echo '<a href="#" class="btn-request-quote btn-alt">Request Quote</a>';
+  echo '</div>';
+}
