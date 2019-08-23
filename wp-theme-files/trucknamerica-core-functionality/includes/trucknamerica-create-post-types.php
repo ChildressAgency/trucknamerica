@@ -57,4 +57,30 @@ function trucknamerica_create_post_types(){
       )
     )
   );
+
+  //woocmmerce Brands taxonomy
+  register_taxonomy('brands',
+    'product',
+    array(
+      'hierarchical' => true,
+      'show_admin_column' => true,
+      'public' => true,
+      'show_in_rest' => true,
+      'labels' => array(
+        'name' => esc_html__('Brands', 'trucknamerica'),
+        'singular_name' => esc_html__('Brand', 'trucknamerica'),
+        'all_items' => esc_html__('All Brands', 'trucknamerica'),
+        'edit_items' => esc_html__('Edit Brands', 'trucknamerica'),
+        'view_item' => esc_html__('View Brand', 'trucknamerica'),
+        'update_item' => esc_html__('Update Brand', 'trucknamerica'),
+        'add_new_item' => esc_html__('Add New Brand', 'trucknamerica'),
+        'parent_item' => esc_html__('Parent Brand', 'trucknamerica'),
+        'search_items' => esc_html__('Search Brands', 'trucknamerica'),
+        'popular_items' => esc_html__('Popular Brands', 'trucknamerica'),
+        'add_or_remove_item' => esc_html__('Add or Remove Brand', 'trucknamerica'),
+        'not_found' => esc_html__('No Brands Found', 'trucknamerica'),
+        'back_to_items' => esc_html__('Back To Brands', 'trucknamerica')
+      )
+    )
+  );
 }
