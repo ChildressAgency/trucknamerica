@@ -150,6 +150,19 @@ function trucknamerica_header_fallback_menu(){ ?>
   </div>
 <?php }
 
+add_action('widgets_init', 'trucknamerica_register_sidebars');
+function trucknamerica_register_sidebars(){
+  register_sidebar(array(
+    'name' => esc_html__('Shop Sidebar', 'trucknamerica'),
+    'id' => 'sidebar-shop',
+    'description' => esc_html__('Add widgets here to appear in your sidebar on the shop pages.', 'trucknamerica'),
+    'before_widget' => '<div class="sidebar-section">',
+    'after_widget' => '</div>',
+    'before_title' => '<h3>',
+    'after_title' => '</h3>'
+  ));
+}
+
 function trucknamerica_can_display_hero_slide($start_date = '', $end_date = ''){
   $today = (int)date('Ymd');
 

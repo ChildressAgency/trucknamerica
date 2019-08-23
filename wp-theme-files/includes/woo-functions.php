@@ -16,6 +16,21 @@ function trucknamerica_wrapper_end(){
   echo '</div></main>';
 }
 
+add_action('woocommerce_before_shop_loop', 'trucknamerica_shop_loop_wrapper_open', 15);
+function trucknamerica_shop_loop_wrapper_open(){
+  echo '<div class="row">
+          <div class="col-md-8 col-lg-9 order-md-12">';
+}
+
+add_action('woocommerce_after_shop_loop', 'trucknamerica_shop_loop_wrapper_close', 15);
+function trucknamerica_shop_loop_wrapper_close(){
+  echo '</div>'; //close col-md-8
+  echo '<div class="col-md-4 col-lg-3 order-md-1">';
+    get_sidebar('shop');
+  echo '</div>';
+  echo '</div>'; //close row
+}
+
 //header cart
 add_action('trucknamerica_show_cart_link', 'trucknamerica_cart_link');
 function trucknamerica_cart_link(){
