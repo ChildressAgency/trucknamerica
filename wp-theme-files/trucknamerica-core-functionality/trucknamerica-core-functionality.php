@@ -65,3 +65,74 @@ function trucknamerica_acf_options_page(){
     'parent_slug' => 'general-settings'
   ));
 }
+
+require_once TRUCKNAMERICA_PLUGIN_DIR . '/includes/class-trucknamerica-brands-widget.php';
+add_action('widgets_init', 'trucknamerica_init_widgets');
+function trucknamerica_init_widgets(){
+  register_widget('Trucknamerica_Brands_Widget');
+}
+
+/**
+ * Add additional woocommerce product tabs
+ */
+add_filter('woocommerce_product_tabs', 'trucknamerica_additional_product_tabs');
+function trucknamerica_additional_product_tabs($tabs){
+  $tabs['featured_tab'] = array(
+    'title' => esc_html__('Features', 'trucknamerica'),
+    'priority' => 11,
+    'callback' => 'trucknamerica_features_tab'
+  );
+
+  $tabs['popular_options_tab'] = array(
+    'title' => esc_html__('Popular Options', 'trucknamerica'),
+    'priority' => 12,
+    'callback' => 'trucknamerica_popular_options_tab'
+  );
+
+  $tabs['video_tab'] = array(
+    'title' => esc_html__('Video', 'trucknamerica'),
+    'priority' => 13,
+    'callback' => 'trucknamerica_video_tab'
+  );
+
+  return $tabs;
+}
+
+function trucknamerica_features_tab(){
+  echo '<h2>' . esc_html__('Features', 'trucknamerica') . '</h2>';
+  echo wp_kses_post(get_field('features'));
+}
+
+function trucknamerica_popular_options_tab(){
+  echo '<h2>' . esc_html__('Popular Options', 'trucknamerica') . '</h2>';
+  echo wp_kses_post(get_field('popular_options'));
+}
+
+function trucknamerica_video_tab(){
+  echo '<h2>' . esc_html__('Video', 'trucknamerica') . '</h2>';
+  echo wp_kses_post(get_field('video'));
+}
+
+/**
+ * Allow iframes with wp_kses_post
+ * allows youtube embed to work
+ */
+add_filter('wp_kses_allowed_html', 'trucknamerica_allow_iframes_filter');
+function trucknamerica_allow_iframes_filter($allowedposttags){
+	$allowedposttags['iframe'] = array(
+		'align' => true,
+		'width' => true,
+		'height' => true,
+		'frameborder' => true,
+		'name' => true,
+		'src' => true,
+		'id' => true,
+		'class' => true,
+		'style' => true,
+		'scrolling' => true,
+		'marginwidth' => true,
+		'marginheight' => true,
+  );
+  
+	return $allowedposttags;
+}
