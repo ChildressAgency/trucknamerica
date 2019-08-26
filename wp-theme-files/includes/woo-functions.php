@@ -101,8 +101,8 @@ remove_action('woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add
 add_action('woocommerce_single_product_summary', 'trucknamerica_show_contact_buttons', 90);
 function trucknamerica_show_contact_buttons(){
   echo '<div class="product-contact-buttons">';
-  echo '<a href="#" class="btn-call-now btn-alt"><img src="' . get_stylesheet_directory_uri() . '/images/icon-call-now.png" class="" alt="Call Now" />Call Now</a>';
-  echo '<a href="#product-inquiry-modal" class="btn-request-quote btn-alt" data-toggle="modal" data-product_name="' . esc_html(get_the_title()) . '">Request Quote</a>';
+  echo '<a href="#call-now-modal" class="btn-call-now btn-alt" data-toggle="modal"><img src="' . get_stylesheet_directory_uri() . '/images/icon-call-now.png" class="" alt="Call Now" />' . esc_html__('Call Now', 'trucknamerica') . '</a>';
+  echo '<a href="#product-inquiry-modal" class="btn-request-quote btn-alt" data-toggle="modal" data-product_name="' . esc_html(get_the_title()) . '">' . esc_html__('Request Quote', 'trucknamerica') . '</a>';
   echo '</div>';
 }
 
@@ -110,9 +110,19 @@ function trucknamerica_show_contact_buttons(){
  * Product inquiry modal content
  */
 add_action('woocommerce_after_main_content', 'trucknamerica_product_inquiry_modal', 20);
-function trucknamerica_product_inquiry_modal(){ ?>
+function trucknamerica_product_inquiry_modal(){ 
+  $cats = get_the_terms(get_the_ID(), 'product_cat');
+  $prod_cat = $cats[0];
+  $prod_cat_parent = $prod_cat;
+
+  if($prod_cat_parent->parent != 0){
+    $prod_cat_parent = trucknamerica_get_oldest_ancestor($prod_cat);
+  }
+
+  $prod_cat_form = get_field('product_inquiry_form_shortcode', $prod_cat_parent);
+  ?>
   <div class="modal fade" id="product-inquiry-modal" tabindex="-1" role="dialog" aria-labelledby="product-inquiry-modal-label" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <h4 class="modal-title" id="product-inquiry-modal-label"></h4>
@@ -122,7 +132,88 @@ function trucknamerica_product_inquiry_modal(){ ?>
         </div>
 
         <div class="modal-body">
-          <?php echo do_shortcode('[formidable id=2]'); ?>
+          <?php echo do_shortcode($prod_cat_form); ?>
+        </div>
+      </div>
+    </div>
+  </div>
+<?php }
+
+function trucknamerica_get_oldest_ancestor($prod_cat){
+
+  if($prod_cat->parent == 0){
+    //var_dump($prod_cat);
+    return $prod_cat;
+  }
+  else{
+    $prod_cat_parent = get_term($prod_cat->parent, 'product_cat');
+    //var_dump($prod_cat_parent);
+    $prod_cat = trucknamerica_get_oldest_ancestor($prod_cat_parent);
+    return $prod_cat;
+  }
+}
+
+/**
+ * Call Now Modal content
+ */
+add_action('woocommerce_after_main_content', 'trucknamerica_call_now_modal', 25);
+function trucknamerica_call_now_modal(){ ?>
+  <div class="modal fade" id="call-now-modal" tabindex="-1" role="dialog" aria-labelledby="call-now-modal-label" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="call-now-modal-title"><?php echo esc_html__('Give Us A Call', 'trucknamerica'); ?></h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <?php
+            $states = get_terms(array(
+              'taxonomy' => 'states',
+              'orderby' => 'name',
+              'order' => 'ASC'
+            ));
+
+            foreach($states as $state){
+              echo '<h4 class="call-now-state">' . sprintf(esc_html__('%s Locations', 'trucknamerica'), $state->name) . '</h4>';
+              echo '<div class="row">';
+
+              $locations = new WP_Query(array(
+                'post_type' => 'locations',
+                'posts_per_page' => -1,
+                'post_status' => 'publish',
+                'tax_query' => array(
+                  array(
+                    'taxonomy' => 'states',
+                    'field' => 'slug',
+                    'terms' => $state->slug
+                  )
+                )
+              ));
+
+              if($locations->have_posts()){
+                $i = 0;
+                while($locations->have_posts()){
+                  $locations->the_post();
+                  $phone = get_field('location_main_phone_number');
+
+                  if($i % 2 == 0){ echo '<div class="clearfix"></div>'; }
+                  echo '<div class="col-md-6">';
+                    echo '<div class="modal-location"><p>';
+                      echo '<span class="city-state">' . esc_html(get_the_title()) . '</span>';
+                      echo '<a href="tel:' . esc_attr($phone) . '" class="tel">' . esc_html($phone) . '</a>';
+                    echo '</p></div>';
+                  echo '</div>';
+
+                  $i++;
+                }
+              }
+
+              echo '</div>'; //end row
+            }
+          ?>
         </div>
       </div>
     </div>

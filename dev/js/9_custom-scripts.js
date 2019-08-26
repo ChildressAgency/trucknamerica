@@ -60,7 +60,7 @@ jQuery(document).ready(function($){
 
     var modal = $(this);
     modal.find('#product-inquiry-modal-label').text(productName);
-    modal.find('#field_product_name').val(productName);
+    modal.find('[id^="field_product_name"]').val(productName);
   });
 });
 

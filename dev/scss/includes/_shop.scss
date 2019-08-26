@@ -81,3 +81,23 @@
     }
   }
 }
+
+#call-now-modal{
+  .call-now-state{
+    text-align: center;
+  }
+
+  .modal-location{
+    text-align: center;
+  }
+
+  .city-state{
+    display:block;
+    color: $brand-color;
+  }
+
+  .tel{
+    color: $alt-color;
+    font-weight: $font-weight-bold;
+  }
+}
