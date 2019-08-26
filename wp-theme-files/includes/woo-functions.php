@@ -102,6 +102,29 @@ add_action('woocommerce_single_product_summary', 'trucknamerica_show_contact_but
 function trucknamerica_show_contact_buttons(){
   echo '<div class="product-contact-buttons">';
   echo '<a href="#" class="btn-call-now btn-alt"><img src="' . get_stylesheet_directory_uri() . '/images/icon-call-now.png" class="" alt="Call Now" />Call Now</a>';
-  echo '<a href="#" class="btn-request-quote btn-alt">Request Quote</a>';
+  echo '<a href="#product-inquiry-modal" class="btn-request-quote btn-alt" data-toggle="modal" data-product_name="' . esc_html(get_the_title()) . '">Request Quote</a>';
   echo '</div>';
 }
+
+/**
+ * Product inquiry modal content
+ */
+add_action('woocommerce_after_main_content', 'trucknamerica_product_inquiry_modal', 20);
+function trucknamerica_product_inquiry_modal(){ ?>
+  <div class="modal fade" id="product-inquiry-modal" tabindex="-1" role="dialog" aria-labelledby="product-inquiry-modal-label" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="product-inquiry-modal-label"></h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <?php echo do_shortcode('[formidable id=2]'); ?>
+        </div>
+      </div>
+    </div>
+  </div>
+<?php }

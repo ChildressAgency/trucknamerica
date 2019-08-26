@@ -53,8 +53,21 @@ jQuery(document).ready(function($){
   }
 
   $('#hero-carousel.carousel-heights .carousel-inner .carousel-item').carouselHeights();
+
+  $('#product-inquiry-modal').on('show.bs.modal', function(e){
+    var button = $(e.relatedTarget);
+    var productName = button.data('product_name');
+
+    var modal = $(this);
+    modal.find('#product-inquiry-modal-label').text(productName);
+    modal.find('#field_product_name').val(productName);
+  });
 });
 
+
+/**
+ * Normalize Carousel Heights
+ */
 $.fn.carouselHeights = function () {
   var items = $(this), //grab all slides
     heights = [], //create empty array to store height values
