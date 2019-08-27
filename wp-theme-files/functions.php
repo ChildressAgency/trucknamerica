@@ -33,6 +33,14 @@ function trucknamerica_scripts(){
   );
 
   wp_register_script(
+    'google-maps',
+    '//maps.googleapis.com/maps/api/js?key=' . get_field('google_maps_api_key', 'option'),
+    array('jquery'),
+    '',
+    false
+  );
+
+  wp_register_script(
     'trucknamerica-scripts',
     get_stylesheet_directory_uri() . '/js/custom-scripts.min.js',
     array('jquery', 'bootstrap-scripts'),
@@ -40,8 +48,12 @@ function trucknamerica_scripts(){
     true
   );
 
+
   wp_enqueue_script('bootstrap-popper');
   wp_enqueue_script('bootstrap-scripts');
+  if(is_page('locations')){
+    wp_enqueue_script('google-maps');
+  }
   wp_enqueue_script('trucknamerica-scripts');
 }
 
