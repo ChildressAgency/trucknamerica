@@ -28,8 +28,10 @@
 
               if($locations->have_posts()): while($locations->have_posts()): $locations->the_post(); ?>
 
-                <div class="row location">
-                  <h3><?php the_title(); ?></h3>
+                <div class="row no-gutters location">
+                  <div class="col-12">
+                    <h3><?php the_title(); ?></h3>
+                  </div>
                   <div class="col-md-6">
                     <p class="store-address mb-0" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
                       <span class="d-block" itemprop="streetAddress">
@@ -44,7 +46,7 @@
                     <div class="management">
                       <?php 
                         $executive_manager = get_field('executive_manager');
-                        $manager = get_field('managers');
+                        $managers = get_field('managers');
                       ?>
                       <p>
                         <?php if($executive_manager): ?>
@@ -54,7 +56,7 @@
                         <?php endif; ?>
                       </p>
                     </div>
-                    <a href="#contact-location-modal" class="btn-alt btn-location-contact mt-5" data-toggle="modal" data-contact_location="<?php echo esc_html(get_the_title()); ?>">Contact Us</a>
+                    <a href="#contact-location-modal" class="btn-alt btn-location-contact mt-4" data-toggle="modal" data-contact_location="<?php echo esc_html(get_the_title()); ?>">Contact Us</a>
                   </div>
 
                   <div class="col-md-6">
@@ -74,11 +76,11 @@
                           <li itemprop="openingHours" content="<?php echo esc_attr($day_and_time); ?>"><?php echo esc_html($day_and_time); ?></li>
                         <?php endwhile; ?>
                       </ul>
-                      <p class="directions" itemprop="hasMap"><a href="<?php echo esc_url(get_field('larger_map_link')); ?>"><i class="far fa-map"></i>&nbsp;VIEW LARGER MAP</a></p>
+                      <p class="directions" itemprop="hasMap"><a href="<?php echo esc_url(get_field('larger_map_link')); ?>" target="_blank"><i class="far fa-map"></i>&nbsp;VIEW LARGER MAP</a></p>
                     <?php endif; ?>
                   </div>
                   <div class="clearfix"></div>
-                  <div class="location-more-info">
+                  <div class="col-12 location-more-info">
                     <?php echo wp_kses_post(get_field('additional_information')); ?>
                   </div>
                 </div>
@@ -97,22 +99,24 @@
         ));
 
         if($map_locations->have_posts()): ?>
-          <div class="map-locations">
+          <div class="locations-map embed-responsive embed-responsive-1by1">
             <?php while($map_locations->have_posts()): $map_locations->the_post(); ?>
 
               <?php $location = get_field('google_map_marker_location'); ?>
-              <div class="marker" data-lat="<?php echo esc_attr($location['lat']); ?>" data-lng="<?php echo esc_attr($location['lng']); ?>">
-                <h4><?php echo esc_html__('Truckn\' America', 'trucknamerica') . '<br />' . esc_html(get_the_title()); ?></h4>
-                <p class="map-address">
-                  <span class="d-block"><?php echo esc_html(get_field('address_1')); ?></span>
-                  <span class="d-block"><?php echo esc_html(get_field('address_2')); ?></span>
-                  <span><?php echo esc_html(get_field('city')) . ', ' . esc_html(get_field('state')) . ' ' . esc_html(get_field('zip')); ?></span>
-                </p>
-                <p class="map-phone">
-                  <?php $map_phone = get_field('location_main_phone_number', 'option'); ?>
-                  <a href="tel:<?php echo esc_attr($map_phone); ?>"><?php echo esc_html($map_phone); ?></a>
-                </p>
-              </div>
+              <?php if($location): ?>
+                <div class="marker" data-lat="<?php echo esc_attr($location['lat']); ?>" data-lng="<?php echo esc_attr($location['lng']); ?>">
+                  <h4><?php echo esc_html__('Truckn\' America', 'trucknamerica'); ?><br /><small><?php echo esc_html(get_the_title()); ?></small></h4>
+                  <p class="map-address">
+                    <span class="d-block"><?php echo esc_html(get_field('address_1')); ?></span>
+                    <span class="d-block"><?php echo esc_html(get_field('address_2')); ?></span>
+                    <span><?php echo esc_html(get_field('city')) . ', ' . esc_html(get_field('state')) . ' ' . esc_html(get_field('zip')); ?></span>
+                  </p>
+                  <p class="map-phone">
+                    <?php $map_phone = get_field('location_main_phone_number'); ?>
+                    <a href="tel:<?php echo esc_attr($map_phone); ?>"><?php echo esc_html($map_phone); ?></a>
+                  </p>
+                </div>
+              <?php endif; ?>
 
             <?php endwhile; ?>
           </div>

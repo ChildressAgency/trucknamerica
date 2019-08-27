@@ -68,7 +68,8 @@ jQuery(document).ready(function($){
     var contactLocation = button.data('contact_location');
 
     var modal = $(this);
-    modal.find('#location_title').val(contactLocation);
+    modal.find('#location_title').text(contactLocation);
+    modal.find('#field_location_title').val(contactLocation);
   });
 
   $('.locations-map').each(function () {

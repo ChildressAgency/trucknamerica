@@ -141,5 +141,5 @@ add_action('acf/init', 'trucknamerica_google_api_key');
 function trucknamerica_google_api_key(){
   $google_api_key = get_field('google_maps_api_key', 'option');
 
-  acf_update_setting('google_api_key', esc_url($google_api_key));
+  acf_update_setting('google_api_key', $google_api_key);
 }

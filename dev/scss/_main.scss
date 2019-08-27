@@ -181,3 +181,59 @@ article{
     transform: scale(1.2);
   }
 }
+
+#locations{
+  padding:0px 15px;
+
+  h2{
+    padding-bottom:20px;
+    padding-top:20px;
+    border-bottom: 1px solid #000;
+  }
+
+  .location{
+    padding-top:40px;
+    padding-bottom:40px;
+    border-bottom: 1px solid #000;
+  }
+
+  .management{
+    margin-top: 25px;
+  }
+
+  .location-more-info{
+    margin-top:25px;
+  }
+}
+
+.alignleft{
+  display:block;
+  max-width:100%;
+  height:auto;
+  float:left;
+  margin:20px 20px 20px 0px;
+}
+.alignright{
+  display:block;
+  max-width:100%;
+  height:auto;
+  float:right;
+  margin:20px 0px 20px 20px;
+}
+.aligncenter{
+  display:block;
+  max-width:100%;
+  height:auto;
+  margin:20px auto;
+}
+.alignnone{
+  display:block;
+  max-width:100%;
+  height:auto;
+  margin:20px 0px;
+}
+
+.locations-map{
+  position:sticky !important;
+  top:0;
+}
