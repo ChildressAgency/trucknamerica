@@ -28,7 +28,7 @@
           <?php else: ?>
             <a href="<?php echo esc_url(home_url('login')); ?>"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/icon-login.png" alt="Login Icon" /><span class="d-none d-sm-inline">&nbsp;<?php echo esc_html__('Login', 'trucknamerica'); ?></span></a>
           <?php endif; ?>
-          <?php echo trucknamerica_cart_link(); ?>
+          <?php trucknamerica_cart_link(); ?>
         </div>
       </div>
     </div>

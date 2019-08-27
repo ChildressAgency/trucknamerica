@@ -36,7 +36,7 @@ add_action('trucknamerica_show_cart_link', 'trucknamerica_cart_link');
 function trucknamerica_cart_link(){
   if(in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_option('active_plugins')))){
     $count = WC()->cart->cart_contents_count;
-    echo '<a href="'. wc_get_cart_url() . '" class="header-cart">' . $count . '<img src="' . get_stylesheet_directory_uri() . '/images/icon-cart.png" alt="Cart Icon" /><span class="d-none d-sm-inline">&nbsp;' . esc_html__('Cart', 'trucknamerica') . '</span></a>';
+    echo '<a href="'. wc_get_cart_url() . '" class="header-cart"><span class="cart-count">' . $count . '</span><img src="' . get_stylesheet_directory_uri() . '/images/icon-cart.png" alt="Cart Icon" /><span class="d-none d-sm-inline">&nbsp;' . esc_html__('Cart', 'trucknamerica') . '</span></a>';
   }
 }
 
@@ -44,7 +44,7 @@ add_filter('woocommerce_add_to_cart_fragments', 'trucknamerica_update_header_car
 function trucknamerica_update_header_cart_count($fragments){
   ob_start();
   $count = WC()->cart->cart_contents_count;
-    echo '<a href="'. wc_get_cart_url() . '" class="header-cart">' . $count . '<img src="' . get_stylesheet_directory_uri() . '/images/icon-cart.png" alt="Cart Icon" /><span class="d-none d-sm-inline">&nbsp;' . esc_html__('Cart', 'trucknamerica') . '</span></a>';
+    echo '<a href="'. wc_get_cart_url() . '" class="header-cart"><span class="cart-count">' . $count . '</span><img src="' . get_stylesheet_directory_uri() . '/images/icon-cart.png" alt="Cart Icon" /><span class="d-none d-sm-inline">&nbsp;' . esc_html__('Cart', 'trucknamerica') . '</span></a>';
 
   $fragments['a.header-cart'] = ob_get_clean();
 
@@ -112,32 +112,34 @@ function trucknamerica_show_contact_buttons(){
 add_action('woocommerce_after_main_content', 'trucknamerica_product_inquiry_modal', 20);
 function trucknamerica_product_inquiry_modal(){ 
   $cats = get_the_terms(get_the_ID(), 'product_cat');
-  $prod_cat = $cats[0];
-  $prod_cat_parent = $prod_cat;
+  if($cats){
+    $prod_cat = $cats[0];
+    $prod_cat_parent = $prod_cat;
 
-  if($prod_cat_parent->parent != 0){
-    $prod_cat_parent = trucknamerica_get_oldest_ancestor($prod_cat);
-  }
+    if($prod_cat_parent->parent != 0){
+      $prod_cat_parent = trucknamerica_get_oldest_ancestor($prod_cat);
+    }
 
-  $prod_cat_form = get_field('product_inquiry_form_shortcode', $prod_cat_parent);
-  ?>
-  <div class="modal fade" id="product-inquiry-modal" tabindex="-1" role="dialog" aria-labelledby="product-inquiry-modal-label" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title" id="product-inquiry-modal-label"></h4>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
+    $prod_cat_form = get_field('product_inquiry_form_shortcode', $prod_cat_parent);
+    ?>
+    <div class="modal fade" id="product-inquiry-modal" tabindex="-1" role="dialog" aria-labelledby="product-inquiry-modal-label" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="product-inquiry-modal-label"></h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
 
-        <div class="modal-body">
-          <?php echo do_shortcode($prod_cat_form); ?>
+          <div class="modal-body">
+            <?php echo do_shortcode($prod_cat_form); ?>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 <?php }
+}
 
 function trucknamerica_get_oldest_ancestor($prod_cat){
 
