@@ -192,3 +192,35 @@ function trucknamerica_can_display_hero_slide($start_date = '', $end_date = ''){
   
   return true;
 }
+
+add_filter('block_categories', 'trucknamerica_custom_block_category', 10, 2);
+function trucknamerica_custom_block_category($categories, $post){
+  return array_merge(
+    $categories,
+    array(
+      array(
+        'slug' => 'custom-blocks',
+        'title' => esc_html__('Custom Blocks', 'trucknamerica'),
+        'icon' => 'wordpress'
+      )
+    )
+  );
+}
+
+add_action('acf/init', 'trucknamerica_register_blocks');
+function trucknamerica_register_blocks(){
+  if(function_exists('acf_register_block_type')){
+    
+    acf_register_block_type(array(
+      'name' => 'prestyled_button',
+      'title' => esc_html__('Pre-Styled Button', 'trucknamerica'),
+      'description' => esc_html__('Add a pre-styled button.', 'trucknamerica'),
+      'category' => 'custom-blocks',
+      'mode' => 'auto',
+      'align' => 'full',
+      'render_template' => get_stylesheet_directory() . '/partials/blocks/prestyled_button.php',
+      'enqueue_style' => get_stylesheet_directory_uri() . '/partials/blocks/prestyled_button.css'
+    ));
+
+  }
+}
