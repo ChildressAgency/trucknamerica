@@ -17,7 +17,8 @@
             <h2><?php echo esc_html(get_sub_field('job_location')); ?></h2>
             <ul class="list-unstyled">
               <?php if(have_rows('positions')): while(have_rows('positions')): the_row(); ?>
-                <li><?php echo esc_html(get_sub_field('position_title')); ?> - <a href="#job-descriptions" class="more-info"><?php echo esc_html__('MORE INFO', 'trucknamerica'); ?></a> - <a href="<?php echo esc_url(get_sub_field('apply_now_link')); ?>"><?php echo esc_html__('APPLY NOW', 'trucknamerica'); ?></a></li>
+                <?php $apply_now_link = get_sub_field('apply_now_link'); ?>
+                <li><?php echo esc_html(get_sub_field('position_title')); ?> - <a href="#job-descriptions" class="more-info"><?php echo esc_html__('MORE INFO', 'trucknamerica'); ?></a> - <a href="<?php echo esc_url($apply_now_link['url']); ?>" target="_blank"><?php echo esc_html__('APPLY NOW', 'trucknamerica'); ?></a></li>
               <?php endwhile; endif; ?>
             </ul>
           </div>
@@ -33,7 +34,7 @@
       <article>
         <?php echo wp_kses_post(get_field('application_instructions')); ?>
         <p class="text-center">
-          <a href="<?php echo esc_url(get_field('apply_now_link')); ?>" class="btn-alt"><?php echo esc_html__('APPLY NOW', 'trucknamerica'); ?></a>
+          <a href="<?php echo esc_url(home_url('job-application')); ?>" class="btn-alt"><?php echo esc_html__('APPLY NOW', 'trucknamerica'); ?></a>
         </p>
       </article>
     </div>
@@ -69,7 +70,7 @@
                       <h3>
                         <a href="#<?php echo $job_title_slug; ?>-description" class="collapsed" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="<?php echo $job_title_slug; ?>-description">
                           <span class="expander"></span>
-                          <?php echo esc_html($job['title']); ?>
+                          <?php echo esc_html($job['job_title']); ?>
                         </a>
                       </h3>
                     </div>

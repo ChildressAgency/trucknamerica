@@ -3,38 +3,40 @@
 */
 
 jQuery(document).ready(function($){
-  $('.partners').slick({
-    dots: false,
-    speed: 300,
-    slidesToShow: 5,
-    slidesToScroll: 1,
-    autoplay: true,
-    centerMade:true,
-    nextArrow: '<button type="button" class="partner-prev"><i class="fas fa-angle-right"></i></button>',
-    prevArrow: '<button type="button" class="partner-next"><i class="fas fa-angle-left"></i></button>',
-    responsive: [
-      {
-        breakpoint: 991,
-        settings: {
-          slidesToShow: 4
+  if(typeof $.fn.slick != 'undefined'){
+    $('.partners').slick({
+      dots: false,
+      speed: 300,
+      slidesToShow: 5,
+      slidesToScroll: 1,
+      autoplay: true,
+      centerMade:true,
+      nextArrow: '<button type="button" class="partner-prev"><i class="fas fa-angle-right"></i></button>',
+      prevArrow: '<button type="button" class="partner-next"><i class="fas fa-angle-left"></i></button>',
+      responsive: [
+        {
+          breakpoint: 991,
+          settings: {
+            slidesToShow: 4
+          }
+        },
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 3
+          }
+        },
+        {
+          breakpoint: 575,
+          settings: {
+            slidesToShow: 2
+          }
         }
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 3
-        }
-      },
-      {
-        breakpoint: 575,
-        settings: {
-          slidesToShow: 2
-        }
-      }
-    ]
-  });
+      ]
+    });
+  }
 
-  if(typeof $.fn.waypoint !== 'undefined'){
+  if(typeof $.fn.waypoint != 'undefined'){
     $('.timeline-year').first().addClass('active');
     
     var waypoint = $('.timeline-year').waypoint({

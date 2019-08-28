@@ -237,3 +237,14 @@ article{
   position:sticky !important;
   top:0;
 }
+
+.wp-block-table td,
+.wp-block-table th{
+  border:none;
+  word-break: normal;
+  border-top:1px solid #dee2e6;
+}
+.two-column-list{
+  column-count: 2;
+  column-gap: 40px;
+}
