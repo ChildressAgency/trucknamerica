@@ -107,3 +107,15 @@
     font-weight: $font-weight-bold;
   }
 }
+
+.product_meta{
+  .sku_wrapper,
+  .posted_in,
+  .tagged_as{
+    display:block;
+  }
+}
+
+.product .woocommerce-tabs.wc-tabs-wrapper{
+  min-height:450px;
+}
