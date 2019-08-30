@@ -77,23 +77,41 @@ function trucknamerica_init_widgets(){
  */
 add_filter('woocommerce_product_tabs', 'trucknamerica_additional_product_tabs');
 function trucknamerica_additional_product_tabs($tabs){
-  $tabs['featured_tab'] = array(
-    'title' => esc_html__('Features', 'trucknamerica'),
-    'priority' => 11,
-    'callback' => 'trucknamerica_features_tab'
-  );
+  $features = get_field('features');
+  if($features){
+    $tabs['featured_tab'] = array(
+      'title' => esc_html__('Features', 'trucknamerica'),
+      'priority' => 11,
+      'callback' => 'trucknamerica_features_tab'
+    );
+  }
 
-  $tabs['popular_options_tab'] = array(
-    'title' => esc_html__('Popular Options', 'trucknamerica'),
-    'priority' => 12,
-    'callback' => 'trucknamerica_popular_options_tab'
-  );
+  $specifications = get_field('specifications');
+  if($specifications){
+    $tabs['specifications_tab'] = array(
+      'title' => esc_html__('Specifications', 'trucknamerica'),
+      'priority' => 12,
+      'callback' => 'trucknamerica_specifications_tab'
+    );
+  }
 
-  $tabs['video_tab'] = array(
-    'title' => esc_html__('Video', 'trucknamerica'),
-    'priority' => 13,
-    'callback' => 'trucknamerica_video_tab'
-  );
+  $popular_options = get_field('popular_options');
+  if($popular_options){
+    $tabs['popular_options_tab'] = array(
+      'title' => esc_html__('Popular Options', 'trucknamerica'),
+      'priority' => 13,
+      'callback' => 'trucknamerica_popular_options_tab'
+    );
+  }
+
+  $video = get_field('video');
+  if($video){
+    $tabs['video_tab'] = array(
+      'title' => esc_html__('Video', 'trucknamerica'),
+      'priority' => 14,
+      'callback' => 'trucknamerica_video_tab'
+    );
+  }
 
   return $tabs;
 }
@@ -101,6 +119,11 @@ function trucknamerica_additional_product_tabs($tabs){
 function trucknamerica_features_tab(){
   echo '<h2>' . esc_html__('Features', 'trucknamerica') . '</h2>';
   echo wp_kses_post(get_field('features'));
+}
+
+function trucknamerica_specifications_tab(){
+  echo '<h2>' . esc_html__('Specifications', 'trucknamerica') . '</h2>';
+  echo wp_kses_post(get_field('specifications'));
 }
 
 function trucknamerica_popular_options_tab(){
