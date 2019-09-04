@@ -59,6 +59,10 @@
         }
       }
     }
+
+    span.toggle{
+      margin-right:6px;
+    }
   }
 }
 
@@ -118,4 +122,25 @@
 
 .product .woocommerce-tabs.wc-tabs-wrapper{
   min-height:450px;
+}
+
+.entry-summary{
+  .brand{
+    margin-bottom:0;
+
+    span{
+      font-weight: $font-weight-bold;
+    }
+  }
+
+  .product_meta{
+    &>span{
+      font-weight: $font-weight-bold;
+
+      &>span,
+      &>a{
+        font-weight: $font-weight-normal;
+      }
+    }
+  }
 }
