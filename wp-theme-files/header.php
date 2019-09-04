@@ -74,6 +74,10 @@
     </nav>
   </header>
 
-  <?php get_template_part('partials/hero'); ?>
+  <?php 
+    if(is_front_page()){
+      get_template_part('partials/hero'); 
+    }
+  ?>
 
   <?php get_template_part('partials/products', 'search'); ?>
