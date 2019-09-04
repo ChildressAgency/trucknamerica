@@ -95,11 +95,20 @@ function trucknamerica_additional_product_tabs($tabs){
     );
   }
 
+  $accessories = get_field('accessories');
+  if($accessories){
+    $tabs['accessories_tab'] = array(
+      'title' => esc_html__('Accessories', 'trucknamerica'),
+      'priority' => 13,
+      'callback' => 'trucknamerica_accessories_tab'
+    );
+  }
+
   $popular_options = get_field('popular_options');
   if($popular_options){
     $tabs['popular_options_tab'] = array(
       'title' => esc_html__('Popular Options', 'trucknamerica'),
-      'priority' => 13,
+      'priority' => 14,
       'callback' => 'trucknamerica_popular_options_tab'
     );
   }
@@ -108,7 +117,7 @@ function trucknamerica_additional_product_tabs($tabs){
   if($video){
     $tabs['video_tab'] = array(
       'title' => esc_html__('Video', 'trucknamerica'),
-      'priority' => 14,
+      'priority' => 15,
       'callback' => 'trucknamerica_video_tab'
     );
   }
@@ -124,6 +133,11 @@ function trucknamerica_features_tab(){
 function trucknamerica_specifications_tab(){
   echo '<h2>' . esc_html__('Specifications', 'trucknamerica') . '</h2>';
   echo wp_kses_post(get_field('specifications'));
+}
+
+function trucknamerica_accessories_tab(){
+  echo '<h2>' . esc_html__('Accessories', 'trucknamerica') . '</h2>';
+  echo wp_kses_post(get_field('accessories'));
 }
 
 function trucknamerica_popular_options_tab(){
@@ -166,3 +180,6 @@ function trucknamerica_google_api_key(){
 
   acf_update_setting('google_api_key', $google_api_key);
 }
+
+require_once TRUCKNAMERICA_PLUGIN_DIR . '/includes/class-trucknamerica-import-products.php';
+new Trucknamerica_Import_Products();
