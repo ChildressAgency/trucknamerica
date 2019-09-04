@@ -106,6 +106,16 @@ function trucknamerica_show_contact_buttons(){
   echo '</div>';
 }
 
+add_action('woocommerce_single_product_summary', 'trucknamerica_show_brand', 35);
+function trucknamerica_show_brand(){
+  $brands = get_the_terms(get_the_ID(), 'brands');
+
+  if($brands){
+    $brand = $brands[0];  
+    echo '<p class="brand"><span>Brand:&nbsp;</span>' . $brand->name . '</p>';
+  }
+}
+
 /**
  * Product inquiry modal content
  */
