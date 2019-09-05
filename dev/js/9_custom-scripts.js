@@ -154,6 +154,7 @@ $.fn.carouselHeights = function () {
       heights.push($(this).height());
     });
     tallest = Math.max.apply(null, heights); //cache largest value
+    if(tallest < 300){ tallest = 300; }
     items.each(function () {
       $(this).css('min-height', tallest + 'px');
     });

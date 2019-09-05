@@ -21,6 +21,22 @@
     flex:none;
     max-width:none;
   }
+
+  ul.products.columns-3 li.product.product-category{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: auto !important;
+    margin:0;
+
+    &.first{
+      clear:none;
+    }
+
+    @include media-breakpoint-down(sm){
+      float:none !important;
+    }
+  }
 }
 
 
