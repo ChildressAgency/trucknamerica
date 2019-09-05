@@ -57,7 +57,22 @@ if(!class_exists('Trucknamerica_Import_Products')){
 
       if($products){
         foreach($products as $product){
-          $this->create_product($product);
+          $product_id = $this->create_product($product);
+
+          if(!is_wp_error($product_id)){
+            $this->set_the_brand($product_id, $product->manufacturer_name);
+
+            update_field($this->features_key, $product->features, $product_id);
+            update_field($this->specs_key, $product->specs, $product_id);
+            update_field($this->accessories_key, $product->accessories, $product_id);
+            update_field($this->options_key, $product->options, $product_id);
+            update_field($this->video_key, $product->video, $product_id);
+
+            echo '<p>Imported: ' . $product->product_page_title . '</p>';
+          }
+          else{
+            echo '<p>Error importing ' . $product->product_page_title . ' - ' . $product_id->get_error_message() . '</p>';
+          }
         }
       }
     }
@@ -100,13 +115,7 @@ if(!class_exists('Trucknamerica_Import_Products')){
 
       $product_id = $new_product->save();
 
-      $this->set_the_brand($product_id, $product->manufacturer_name);
-
-      update_field($this->features_key, $product->features, $product_id);
-      update_field($this->specs_key, $product->specs, $product_id);
-      update_field($this->accessories_key, $product->accessories, $product_id);
-      update_field($this->options_key, $product->options, $product_id);
-      update_field($this->video_key, $product->video, $product_id);
+      return $product_id;
     }
 
     private function get_product_image_ids($product){
@@ -179,11 +188,19 @@ if(!class_exists('Trucknamerica_Import_Products')){
 
       if($brand_id == 0  || $brand_id == null){
         $brand_term = wp_insert_term($brand, 'brands');
-        $brand_id = $brand_term[0];
+        if(!is_wp_error($brand_term)){
+          $brand_id = $brand_term[0];
+        }
+        else{
+          echo '<p>Error: ' . $brand_term->get_error_message() . '</p>';
+        }
       }
 
       if(!is_wp_error($brand_id)){
         wp_set_post_terms($product_id, $brand_id, 'brands');
+      }
+      else{
+        echo '<p>Error: ' . $brand_id->get_error_message() . '</p>';
       }
     }
 
