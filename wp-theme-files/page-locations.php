@@ -33,7 +33,7 @@
                     <h3><?php the_title(); ?></h3>
                   </div>
                   <div class="col-md-6">
-                    <p class="store-address mb-0" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+                    <a href="<?php echo esc_url(get_field('larger_map_link')); ?>" class="store-address mb-0" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress" target="_blank">
                       <span class="d-block" itemprop="streetAddress">
                         <?php echo esc_html(get_field('address_1')); ?>
                         <?php echo get_field('address_2') ? '<br />' . esc_html(get_field('address_2')) : ''; ?>
@@ -41,7 +41,7 @@
                       <span itemprop="addressLocality"><?php echo esc_html(get_field('city')); ?></span>,
                       <span itemprop="addressRegion"><?php echo esc_html(get_field('state')); ?></span>&nbsp;
                       <span itemprop="postalCode"><?php echo esc_html(get_field('zip')); ?></span>
-                    </p>
+                    </a>
                     <a href="tel:<?php echo esc_attr(get_field('location_main_phone_number')); ?>"><span class="d-block main-phone" itemprop="telephone"><?php echo esc_html(get_field('location_main_phone_number')); ?></span></a>
                     <div class="management">
                       <?php 
