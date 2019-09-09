@@ -39,7 +39,8 @@
         </a>
         <div class="locations-call ml-auto d-none d-md-flex align-items-center">
           <a href="<?php echo esc_url(home_url('locations')); ?>" id="header-locations" class="header-contact"><span>STORE</span>LOCATIONS</a>
-          <a href="tel:<?php echo $main_phone; ?>" id="header-call-today" class="header-contact"><span>CALL</span>TODAY</a>
+          <!--<a href="tel:<?php echo $main_phone; ?>" id="header-call-today" class="header-contact"><span>CALL</span>TODAY</a>-->
+          <a href="<?php echo esc_url(home_url('locations')); ?>" id="header-call-today" class="header-contact"><span>CALL</span>TODAY</a>
         </div>
       </div>
     </div>
