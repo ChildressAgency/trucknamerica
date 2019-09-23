@@ -248,3 +248,36 @@ article{
   column-count: 2;
   column-gap: 40px;
 }
+
+.our-hero-header{
+  background-image: url(images/our-hero-header-bg.png);
+  background-repeat: repeat-x;
+  background-position: center center;
+  min-height:200px;
+  display: flex;
+  align-items: center;
+
+  .our-hero-img{
+    display:block;
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%;
+    border: 6px solid $alt-color;
+  }
+
+  .our-hero-name{
+    display: flex;
+    height: 100%;
+    align-items: center;
+    color: #fff;
+
+    h3{
+      font-size: 32px;
+      font-weight: $font-weight-bold;
+    }
+  }
+}
+
+.our-hero-article{
+  margin-top: 25px;
+}
