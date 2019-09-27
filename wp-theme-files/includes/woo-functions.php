@@ -85,8 +85,12 @@ function trucknamerica_subcategory_thumbnail($category){
 
 add_action('woocommerce_shop_loop_subcategory_title', 'trucknamerica_template_loop_category_title', 10);
 function trucknamerica_template_loop_category_title($category){
+  $name_position = get_field('category_title_position', 'product_cat_' . $category->term_id);
+  if(!$name_position){
+    $name_position = 'left-bottom';
+  }
   echo '<a href="' . esc_url(get_term_link($category, 'product_cat')) . '">';
-    echo '<span class="left-bottom">' . $category->name . '</span>';
+    echo '<span class="' . esc_attr($name_position) . '">' . $category->name . '</span>';
   echo '</a>';
 }
 
