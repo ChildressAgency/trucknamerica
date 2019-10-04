@@ -225,3 +225,17 @@ function trucknamerica_register_blocks(){
 
   }
 }
+
+add_filter('frm_notification_attachment', 'trucknamerica_coupon_attachment', 10, 3);
+function trucknamerica_coupon_attachment($attachments, $form, $args){
+  $email_id = $args['email_key'];
+
+  $email_coupons = get_field('email_coupons', 'option');
+  foreach($email_coupons as $coupon){
+    if($coupon['email_id'] == $email_id){
+      $attachments[] = $coupon['coupon_image'];
+    }
+  }
+
+  return $attachments;
+}
