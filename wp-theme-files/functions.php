@@ -231,9 +231,11 @@ function trucknamerica_coupon_attachment($attachments, $form, $args){
   $email_id = $args['email_key'];
 
   $email_coupons = get_field('email_coupons', 'option');
-  foreach($email_coupons as $coupon){
-    if($coupon['email_id'] == $email_id){
-      $attachments[] = $coupon['coupon_image'];
+  if($email_coupons){
+    foreach($email_coupons as $coupon){
+      if($coupon['email_id'] == $email_id){
+        $attachments[] = $coupon['coupon_image'];
+      }
     }
   }
 
