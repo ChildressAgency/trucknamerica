@@ -53,7 +53,7 @@
 
         <?php
           $header_menu_extra = '<li class="nav-item d-block d-md-none"><a href="' . esc_url(home_url('locations')) . '" class="nav-link">' . esc_html__('Store Locations', 'trucknamerica') . '</a></li>';
-          $header_menu_extra .= '<li class="nav-item d-block d-md-none"><a href=tel:"' . $main_phone . '" class="nav-link">' . esc_html__('Call Today', 'trucknamerica') . '</a></li>';
+          $header_menu_extra .= '<li class="nav-item d-block d-md-none"><a href="' . esc_url(home_url('locations')) . '" class="nav-link">' . esc_html__('Call Today', 'trucknamerica') . '</a></li>';
 
           $header_nav_args = array(
             'theme_location' => 'header-nav',
