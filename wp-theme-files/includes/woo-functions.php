@@ -235,3 +235,8 @@ function trucknamerica_call_now_modal(){ ?>
     </div>
   </div>
 <?php }
+
+add_filter('woocommerce_product_subcategories_hide_empty', 'trucknamerica_empty_categories', 10, 1);
+function trucknamerica_empty_categories($hide_empty){
+  $hide_empty = false;
+}
