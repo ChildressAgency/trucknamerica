@@ -62,6 +62,27 @@ function trucknamerica_empty_price_html(){
 }
 
 /**
+ * replace archive description
+ */
+remove_action('woocommerce_archive_description', 'woocommerce_taxonomy_archive_description', 10);
+add_action('woocommerce_archive_description', 'trucknamerica_taxonomy_archive_description', 10);
+function trucknamerica_taxonomy_archive_description(){
+  if(is_product_taxonomy() && 0 === absint(get_query_var('paged'))){
+    $term = get_queried_object();
+
+    if($term){
+      $tax_desc = get_field('product_category_description', $term);
+      if($tax_desc){
+        echo '<div class="term-description">' . wp_kses_post($tax_desc) . '</div>';
+      }
+      elseif(!empty($term->description)){
+        echo '<div class="term-description">' . wc_format_content($term->description) . '</div>';
+      }
+    }
+  }
+}
+
+/**
  * product category thumbnail
  * @see content-product_cat.php
  */
