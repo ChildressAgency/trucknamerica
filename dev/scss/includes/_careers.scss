@@ -1,0 +1,48 @@
+#to-apply{
+  background-color: $light-grey;
+  padding-top:5px;
+  padding-bottom:5px;
+
+  .btn-alt{
+    margin-top:40px;
+  }
+}
+
+.job-desc-header{
+  border-bottom: 2px solid $alt-color;
+}
+
+#jobs{
+  .card{
+    border:none;
+    border-bottom:2px solid $alt-color;
+    border-radius:0;
+  }
+
+  .card-header{
+    border:none;
+    background-color:transparent;
+    padding-left:40px;
+
+    a{
+      position:relative;
+
+      &::before{
+        position:absolute;
+        content: "\002d";
+        left:-42px;
+        top:14px;
+        font-size:85px;
+        line-height:0em;
+      }
+
+      &.collapsed::before{
+        content:"\002b";
+      }
+    }
+  }
+
+  .card-body{
+    padding-left:40px;
+  }
+}

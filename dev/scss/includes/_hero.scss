@@ -1,0 +1,141 @@
+.hero-caption{
+  position:relative;
+  z-index:3;
+  color: #fff;
+  width: 100%;
+  padding: 80px 15px;
+
+  h2{
+    margin-bottom:25px;
+  }
+
+  .btn-alt{
+    margin-top:60px;
+  }
+
+  @include media-breakpoint-up(sm){
+    width:75%;
+  }
+
+  @include media-breakpoint-up(lg){
+    width:50%;
+  }
+}
+
+.half-overlay{
+  position:absolute;
+  z-index:1;
+  height:100%;
+  width:100%;
+  padding: 15px;
+  top:0;
+  left:0;
+  background-color:rgba(0,0,0,.5);
+
+  @include media-breakpoint-up(sm){
+    width:75%;
+  }
+
+  @include media-breakpoint-up(lg){
+    width:50%;
+  }
+}
+
+#hero-carousel{
+  .carousel-indicators{
+    width:50%;
+    margin-left:0;
+    margin-right:0;
+    justify-content:flex-end;
+
+    li{
+      height:20px;
+      width:20px;
+      border-radius:50%;
+      margin-right:25px;
+    }
+  }
+
+  .carousel-item{
+    background-repeat:no-repeat;
+    background-size:cover;
+    min-height:300px;
+  }
+}
+
+#product-search{
+  background-color: $light-grey;
+  padding-top:25px;
+  padding-bottom:25px;
+
+  .form-inline{
+    justify-content:center;
+  }
+
+  .search-bar-label{
+    font-size:28px;
+    color: $brand-color;
+    display:block;
+    text-align:right;
+    font-weight: $font-weight-bold;
+    margin-right:10px;
+
+    span{
+      font-size:42px;
+      color: $alt-color;
+      display:block;
+    }
+  }
+
+  .input-group{
+    width:50%;
+    flex-wrap:nowrap;
+  }
+
+  .search-field{
+    height:77px;
+    width:87%;
+    border-top-left-radius:50px;
+    border-bottom-left-radius:50px;
+    border:2px solid #999;
+    border-right:none;
+    padding-left:25px;
+    font-size:28px;
+  }
+
+  .btn-search{
+    border:2px solid #999;
+    border-left:none;
+    background-color: #fff;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    padding-right:15px;
+  }
+
+  @include media-breakpoint-down(sm){
+    .form-inline{
+      display:block;
+    }
+
+    .search-bar-label{
+      text-align:center;
+
+      span{
+        display:inline;
+      }
+    }
+
+    .input-group{
+      width:100%;
+    }
+  }
+}
+
+.hero_link{
+  position:absolute;
+  height:100%;
+  width:100%;
+  top:0;
+  left:0;
+  z-index:3;
+}

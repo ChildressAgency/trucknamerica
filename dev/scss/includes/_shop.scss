@@ -1,0 +1,162 @@
+.woocommerce{
+  .img-link a span{
+    font-size:22px;
+    font-weight: $font-weight-bold;
+  }
+
+  .tna-product-loop{
+    margin-top:60px;
+  }
+
+  .type-product{
+    margin-top:60px;
+  }
+
+  .woocommerce-breadcrumb{
+    margin-top:15px;
+  }
+
+  .col-1,
+  .col-2{
+    flex:none;
+    max-width:none;
+  }
+
+  ul.products.columns-3 li.product.product-category{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: auto !important;
+    margin:0;
+
+    &.first{
+      clear:none;
+    }
+
+    @include media-breakpoint-down(sm){
+      float:none !important;
+    }
+  }
+}
+
+
+#shop-sidebar{
+  .sidebar-section{
+
+    & + .sidebar-section{
+      border-top: 1px solid $light-grey;
+      padding-top: 20px; 
+    }
+
+    h3{
+      font-size:24px;
+      text-transform:uppercase;
+    }
+
+    ul{
+      list-style:none;
+      padding-left:0;
+
+      ul.children{
+        list-style: none;
+        padding-left:15px;
+      }
+
+      .cat-item{
+        margin-bottom:10px;
+
+        a{
+          color:#000;
+          font-size:16px;
+        }
+        
+        .count{
+          font-size:16px;
+        }
+      }
+    }
+
+    span.toggle{
+      margin-right:6px;
+    }
+  }
+}
+
+.product-contact-buttons{
+  margin-top:60px;
+
+  a + a{
+    margin-left:15px;
+  }
+
+  .btn-call-now{
+    img{
+      vertical-align:text-bottom;
+      margin-right:10px;
+    }
+  }
+
+  .btn-request-quote{
+    background-color: #cfcfcf;
+    color: $alt-color;
+
+    &:hover,
+    &:focus{
+      background-color: $brand-color;
+      color: #fff;
+    }
+  }
+}
+
+#call-now-modal{
+  .call-now-state{
+    text-align: center;
+  }
+
+  .modal-location{
+    text-align: center;
+  }
+
+  .city-state{
+    display:block;
+    color: $brand-color;
+  }
+
+  .tel{
+    color: $alt-color;
+    font-weight: $font-weight-bold;
+  }
+}
+
+.product_meta{
+  .sku_wrapper,
+  .posted_in,
+  .tagged_as{
+    display:block;
+  }
+}
+
+.product .woocommerce-tabs.wc-tabs-wrapper{
+  min-height:450px;
+}
+
+.entry-summary{
+  .brand{
+    margin-bottom:0;
+
+    span{
+      font-weight: $font-weight-bold;
+    }
+  }
+
+  .product_meta{
+    &>span{
+      font-weight: $font-weight-bold;
+
+      &>span,
+      &>a{
+        font-weight: $font-weight-normal;
+      }
+    }
+  }
+}

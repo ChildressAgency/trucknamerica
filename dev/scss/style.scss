@@ -1,0 +1,37 @@
+/*!
+  Theme Name: Truck'n America
+  Theme Author: The Childress Agency
+  Theme Autor URI: https://childressagency.com
+  Version: 1.0
+*/
+
+/********************************
+* custom variables and bootstrap
+* variable overrides
+********************************/
+@import "variables";
+
+/*******************************
+* vendor scss files
+*******************************/
+@import "includes/bootstrap";
+
+@import "includes/slick";
+@import "includes/slick-theme";
+
+/******************************
+* main scss file with gobal
+* styles
+******************************/
+@import "main";
+
+/*******************************
+* scss partial files
+*******************************/
+@import "includes/header";
+@import "includes/hero";
+@import "includes/homepage";
+@import "includes/footer";
+@import "includes/aboutus";
+@import "includes/careers";
+@import "includes/shop";
