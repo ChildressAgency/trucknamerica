@@ -149,6 +149,11 @@ function trucknamerica_product_inquiry_modal(){
   $cats = get_the_terms(get_the_ID(), 'product_cat');
   if($cats){
     $prod_cat = $cats[0];
+    
+    if($prod_cat->slug == 'clearance' && count($cats) > 1){
+      $prod_cat = $cats[1];
+    }
+
     $prod_cat_parent = $prod_cat;
 
     if($prod_cat_parent->parent != 0){
