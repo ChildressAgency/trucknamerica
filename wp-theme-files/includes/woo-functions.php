@@ -83,6 +83,26 @@ function trucknamerica_taxonomy_archive_description(){
 }
 
 /**
+ * Second archive description
+ * Displays under loop
+ */
+//add_action('woocommerce_after_main_content', 'trucknamerica_second_archive_description', 15);
+add_action('woocommerce_after_shop_loop', 'trucknamerica_second_archive_description', 12);
+add_action('woocommerce_no_products_found', 'trucknamerica_second_archive_description', 12);
+function trucknamerica_second_archive_description(){
+  if(is_product_taxonomy() && 0 === absint(get_query_var('paged'))){
+    $term = get_queried_object();
+
+    if($term){
+      $tax_desc = get_field('product_category_second_description', $term);
+      if($tax_desc){
+        echo '<div class="term-second-description" style="margin-top:80px; padding-top:25px; border-top:1px solid #000;">' . apply_filters('the_content', wp_kses_post($tax_desc)) . '</div>';
+      }
+    }
+  }
+}
+
+/**
  * product category thumbnail
  * @see content-product_cat.php
  */
