@@ -56,6 +56,10 @@ jQuery(document).ready(function($){
 
   $('#hero-carousel.carousel-heights .carousel-inner .carousel-item').carouselHeights();
 
+  //$('#hero-carousel').carousel();
+
+  //$('.carousel').bcSwipe({ threshold: 50 });
+
   $('#product-inquiry-modal').on('show.bs.modal', function(e){
     var button = $(e.relatedTarget);
     var productName = button.data('product_name');
