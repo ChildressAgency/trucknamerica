@@ -44,8 +44,8 @@
                 <?php endif; ?>
               </div>
 
-            <?php endif; ?>
-          <?php $s++; endforeach; ?>
+            <?php $s++; endif; ?>
+          <?php endforeach; ?>
           
         </div>
       </div>
