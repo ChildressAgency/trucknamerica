@@ -241,3 +241,71 @@ function trucknamerica_coupon_attachment($attachments, $form, $args){
 
   return $attachments;
 }
+
+add_shortcode('trucknamerica_form_popup', 'trucknamerica_form_popup_handler');
+function trucknamerica_form_popup_handler($atts){
+  $a = shortcode_atts(array(
+    'formidable_form_id' => '',
+    'link_text' => ''
+  ), $atts);
+
+  ob_start();
+  ?>
+    <p><a href="#add-product-form" data-toggle="modal"><?php echo $a['link_text']; ?></a></p>
+
+    <div class="modal fade" id="add-product-form" tabindex="-1" role="dialog" aria-labelledby="add-product-modal-label" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <div class="modal-body">
+            <?php echo do_shortcode('[formidable id="' . $a['formidable_form_id'] . '"]'); ?>
+          </div>
+        </div>
+      </div>
+    </div>
+  <?php
+  return ob_get_clean();
+}
+
+//add_action('woocommerce_product_object_updated_props', 'trucknamerica_updated_props');
+//function trucknamerica_updated_props($updated_props){
+//  var_dump($updated_props);
+//}
+
+add_action('woocommerce_update_product', 'trucknamerica_fix_gallery_array');
+add_action('woocommerce_new_product', 'trucknamerica_fix_gallery_array');
+function trucknamerica_fix_gallery_array($product_id){
+  global $wpdb;
+
+  $gallery_array = $wpdb->get_row("
+    SELECT meta_value
+    FROM $wpdb->postmeta
+    WHERE post_id = %d
+      AND meta_key = %s", $product_id, '_product_image_gallery');
+
+  //if(is_serialized($gallery_array)){
+    //$gallery_array = unserialize($gallery_array);
+    //$gallery_string = implode(',', $gallery_array);
+
+    //$wpdb->query($wpdb->prepare("
+    //  UPDATE $wpdb->postmeta
+    //  SET meta_value = %s
+    //  WHERE post_id = %d
+    //    AND meta_key = %s", $gallery_string, $product_id, '_product_image_gallery'));
+  //}
+
+  $wpdb->query($wpdb->prepare("
+    UPDATE $wpdb->postmeta
+    SET meta_value = %s
+    WHERE post_id = %d
+      AND meta_key = %s", $gallery_array->meta_value, 6921, 'total_sales'));
+}
+
+//a:3:{i:0;s:4:"6918";i:1;s:4:"6919";i:2;s:4:"6920";}
+
+//select * from wp_postmeta where post_id = 6921
