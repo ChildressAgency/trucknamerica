@@ -278,34 +278,24 @@ function trucknamerica_form_popup_handler($atts){
 //}
 
 add_action('woocommerce_update_product', 'trucknamerica_fix_gallery_array');
-add_action('woocommerce_new_product', 'trucknamerica_fix_gallery_array');
+add_action('woocommerce_new_product', 'trucknamerica_fix_gallery_array', 99);
 function trucknamerica_fix_gallery_array($product_id){
   global $wpdb;
 
-  $gallery_array = $wpdb->get_row("
+  $gallery_array = $wpdb->get_row($wpdb->prepare("
     SELECT meta_value
     FROM $wpdb->postmeta
     WHERE post_id = %d
-      AND meta_key = %s", $product_id, '_product_image_gallery');
+      AND meta_key = %s", $product_id, '_product_image_gallery'));
 
-  //if(is_serialized($gallery_array)){
-    //$gallery_array = unserialize($gallery_array);
-    //$gallery_string = implode(',', $gallery_array);
-
-    //$wpdb->query($wpdb->prepare("
-    //  UPDATE $wpdb->postmeta
-    //  SET meta_value = %s
-    //  WHERE post_id = %d
-    //    AND meta_key = %s", $gallery_string, $product_id, '_product_image_gallery'));
-  //}
-
-  $wpdb->query($wpdb->prepare("
-    UPDATE $wpdb->postmeta
-    SET meta_value = %s
-    WHERE post_id = %d
-      AND meta_key = %s", $gallery_array->meta_value, 6921, 'total_sales'));
+  if(is_serialized($gallery_array->meta_value)){
+    $gallery_array = unserialize($gallery_array->meta_value);
+    $gallery_string = implode(',', $gallery_array);
+   
+    $wpdb->query($wpdb->prepare("
+     UPDATE $wpdb->postmeta
+     SET meta_value = %s
+     WHERE post_id = %d
+       AND meta_key = %s", $gallery_string, $product_id, '_product_image_gallery'));
+  }
 }
-
-//a:3:{i:0;s:4:"6918";i:1;s:4:"6919";i:2;s:4:"6920";}
-
-//select * from wp_postmeta where post_id = 6921
