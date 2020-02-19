@@ -2,7 +2,7 @@
   $hero_slides = get_field('hero_slides', 'option');
 
   if($hero_slides): ?>
-    <section id="hero">
+    <section id="hero" class="d-none d-sm-block">
       <div id="hero-carousel" class="carousel slide carousel-heights" data-ride="carousel">
         <ol class="carousel-indicators">
 
