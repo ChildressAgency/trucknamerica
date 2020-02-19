@@ -5,56 +5,58 @@
 
       <?php get_template_part('partials/products', 'top_categories'); ?>
 
-      <section id="hp-services">
-        <div class="row no-gutters">
-          <?php $service_1_image = get_field('service_block_1_image'); ?>
+      <?php if(get_field('display_this_section')): ?>
+        <section id="hp-services">
+          <div class="row no-gutters">
+            <?php $service_1_image = get_field('service_block_1_image'); ?>
 
-          <div class="col-md-6 left-side d-flex align-items-center" style="background-image:url(<?php echo $service_1_image['url']; ?>);">
-            <div class="services-content">
-              <h2><?php echo esc_html(get_field('service_block_1_title')); ?></h2>
-              <p><?php echo esc_html(get_field('service_block_1_description')); ?></p>
-              <?php $service_1_link = get_field('service_block_1_link'); ?>
-              <a href="<?php echo esc_url($service_1_link['url']); ?>" class="learn-more"><?php echo esc_html($service_1_link['title']); ?></a>
+            <div class="col-md-6 left-side d-flex align-items-center" style="background-image:url(<?php echo $service_1_image['url']; ?>);">
+              <div class="services-content">
+                <h2><?php echo esc_html(get_field('service_block_1_title')); ?></h2>
+                <p><?php echo esc_html(get_field('service_block_1_description')); ?></p>
+                <?php $service_1_link = get_field('service_block_1_link'); ?>
+                <a href="<?php echo esc_url($service_1_link['url']); ?>" class="learn-more"><?php echo esc_html($service_1_link['title']); ?></a>
+              </div>
+              <div class="blue-overlay"></div>
             </div>
-            <div class="blue-overlay"></div>
-          </div>
 
-          <?php $service_2_image = get_field('service_block_2_image'); ?>
-          <div class="col-md-6 right-side d-flex align-items-center" style="background-image:url(<?php echo esc_url($service_2_image['url']); ?>);">
-            <div class="services-content">
-              <h2><?php echo esc_html(get_field('service_block_2_title')); ?></h2>
-              <p><?php echo esc_html(get_field('service_block_2_description')); ?></p>
-              <?php $service_2_link = get_field('service_block_2_link'); ?>
-              <a href="<?php echo esc_url($service_2_link['url']); ?>" class="learn-more"><?php echo esc_html($service_2_link['title']); ?></a>
-            </div>
-            <div class="dark-overlay"></div>
-          </div>
-        </div>
-        <div class="row no-gutters">
-          <div class="col-12 trade-ins">
-            <div class="services-content">
-              <h2><?php echo esc_html(get_field('service_block_3_title')); ?></h2>
-              <p><?php echo esc_html(get_field('service_block_3_description')); ?></p>
-              <?php $service_3_link = get_field('service_block_3_link'); ?>
-              <p class="text-center">
-                <a href="<?php echo esc_url($service_3_link['url']); ?>" class="btn-main"><?php echo esc_html($service_3_link['title']); ?></a>
-              </p>
+            <?php $service_2_image = get_field('service_block_2_image'); ?>
+            <div class="col-md-6 right-side d-flex align-items-center" style="background-image:url(<?php echo esc_url($service_2_image['url']); ?>);">
+              <div class="services-content">
+                <h2><?php echo esc_html(get_field('service_block_2_title')); ?></h2>
+                <p><?php echo esc_html(get_field('service_block_2_description')); ?></p>
+                <?php $service_2_link = get_field('service_block_2_link'); ?>
+                <a href="<?php echo esc_url($service_2_link['url']); ?>" class="learn-more"><?php echo esc_html($service_2_link['title']); ?></a>
+              </div>
+              <div class="dark-overlay"></div>
             </div>
           </div>
-        </div>
-        <div class="row no-gutters">
-          <?php $service_4_image = get_field('service_block_4_image'); ?>
-          <div class="col-12 trailers d-flex align-items-center" style="background-image:url(<?php echo esc_url($service_4_image['url']); ?>);">
-            <div class="services-content">
-              <h2><?php echo esc_html(get_field('service_block_4_title')); ?></h2>
-              <p><?php echo esc_html(get_field('service_block_4_description')); ?></p>
-              <?php $service_4_link = get_field('service_block_4_link'); ?>
-              <a href="<?php echo esc_url($service_4_link['url']); ?>" class="learn-more"><?php echo esc_html($service_4_link['title']); ?></a>
+          <div class="row no-gutters">
+            <div class="col-12 trade-ins">
+              <div class="services-content">
+                <h2><?php echo esc_html(get_field('service_block_3_title')); ?></h2>
+                <p><?php echo esc_html(get_field('service_block_3_description')); ?></p>
+                <?php $service_3_link = get_field('service_block_3_link'); ?>
+                <p class="text-center">
+                  <a href="<?php echo esc_url($service_3_link['url']); ?>" class="btn-main"><?php echo esc_html($service_3_link['title']); ?></a>
+                </p>
+              </div>
             </div>
-            <div class="dark-overlay"></div>
           </div>
-        </div>
-      </section>
+          <div class="row no-gutters">
+            <?php $service_4_image = get_field('service_block_4_image'); ?>
+            <div class="col-12 trailers d-flex align-items-center" style="background-image:url(<?php echo esc_url($service_4_image['url']); ?>);">
+              <div class="services-content">
+                <h2><?php echo esc_html(get_field('service_block_4_title')); ?></h2>
+                <p><?php echo esc_html(get_field('service_block_4_description')); ?></p>
+                <?php $service_4_link = get_field('service_block_4_link'); ?>
+                <a href="<?php echo esc_url($service_4_link['url']); ?>" class="learn-more"><?php echo esc_html($service_4_link['title']); ?></a>
+              </div>
+              <div class="dark-overlay"></div>
+            </div>
+          </div>
+        </section>
+      <?php endif; ?>
     </div>
   </main>
 
