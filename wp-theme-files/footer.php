@@ -1,6 +1,6 @@
-<?php get_template_part('partials/products', 'featured'); ?>
-
 <?php get_template_part('partials/quick_links'); ?>
+
+<?php get_template_part('partials/products', 'featured'); ?>
 
 <?php get_template_part('partials/partners'); ?>
 

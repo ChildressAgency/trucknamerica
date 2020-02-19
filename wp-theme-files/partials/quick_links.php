@@ -1,5 +1,5 @@
 <?php if(have_rows('quick_links', 'option')): ?>
-  <section id="quick-links">
+  <section id="quick-links" style="margin-top: 80px;">
     <div class="container">
       <div class="quick-links d-flex flex-wrap justify-content-center">
         <?php while(have_rows('quick_links', 'option')): the_row(); ?>
