@@ -5,8 +5,11 @@
       <div class="partners">
         <?php while(have_rows('partners', 'option')): the_row(); ?>
           <?php $partner_img = get_sub_field('partner_image'); ?>
+          <?php $partner_link = get_sub_field('partner_link'); ?>
           <div>
-            <img src="<?php echo esc_url($partner_img['url']); ?>" class="img-fluid d-block mx-auto" alt="<?php echo esc_attr($partner_img['alt']); ?>" />
+            <a href="<?php echo esc_url($partner_link); ?>" target="_blank">
+              <img src="<?php echo esc_url($partner_img['url']); ?>" class="img-fluid d-block mx-auto" alt="<?php echo esc_attr($partner_img['alt']); ?>" />
+            </a>
           </div>
         <?php endwhile; ?>
       </div>
