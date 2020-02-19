@@ -1,3 +1,5 @@
+<?php get_template_part('partials/products', 'latest'); ?>
+
 <?php get_template_part('partials/quick_links'); ?>
 
 <?php get_template_part('partials/products', 'featured'); ?>
