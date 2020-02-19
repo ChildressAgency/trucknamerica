@@ -188,3 +188,51 @@
     width:100px;
   }
 }
+
+.phone-social-cart{
+  .social{
+    a{
+      color: #fff;
+      font-size: 25px;
+
+      & + a{
+        margin-left: 15px;
+      }
+
+      &:hover,
+      &:focus{
+        text-decoration: none;
+      }
+    }
+  }
+
+  .login-cart{
+    margin-left: 20px;
+
+    a{
+      color: #fff;
+      display: inline-block;
+
+      &:hover,
+      &:focus{
+        text-decoration: none;
+      }
+    }
+  }
+
+  .header-cart{
+    position:relative;
+
+    .cart-count{
+      position:absolute;
+      color: #000;
+      font-size:9px;
+      top:4px;
+      left:2px;
+    }
+
+    img{
+      width:32px;
+    }
+  }
+}
