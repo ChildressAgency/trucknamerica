@@ -52,7 +52,7 @@ function trucknamerica_scripts(){
 
   wp_enqueue_script('bootstrap-popper');
   wp_enqueue_script('bootstrap-scripts');
-  if(is_page('locations')){
+  if(is_page('locations') || is_singular('locations')){
     wp_enqueue_script('google-maps');
   }
   wp_enqueue_script('trucknamerica-scripts');

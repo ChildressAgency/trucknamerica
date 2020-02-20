@@ -31,7 +31,7 @@
             while($locations->have_posts()){
               $locations->the_post();
               echo '<tr>';
-              echo '<th scope="row"><a href="' . esc_url(get_field('larger_map_link')) .'" target="_blank">' . esc_html(get_the_title()) . '</a></th>';
+              echo '<th scope="row"><a href="' . esc_url(get_permalink()) .'">' . esc_html(get_the_title()) . '</a></th>';
               echo '<td>' . esc_html(get_field('location_main_phone_number')) . '</td>';
             }
           }
