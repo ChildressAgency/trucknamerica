@@ -7,7 +7,7 @@
 
       <?php if(get_field('display_this_section')): ?>
         <section id="hp-services">
-          <div class="row no-gutters">
+          <!--<div class="row no-gutters">
             <?php $service_1_image = get_field('service_block_1_image'); ?>
 
             <div class="col-md-6 left-side d-flex align-items-center" style="background-image:url(<?php echo $service_1_image['url']; ?>);">
@@ -30,7 +30,7 @@
               </div>
               <div class="dark-overlay"></div>
             </div>
-          </div>
+          </div>-->
           <div class="row no-gutters">
             <div class="col-12 trade-ins">
               <div class="services-content">
