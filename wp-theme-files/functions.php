@@ -251,9 +251,9 @@ function trucknamerica_form_popup_handler($atts){
 
   ob_start();
   ?>
-    <p><a href="#add-product-form" data-toggle="modal"><?php echo $a['link_text']; ?></a></p>
+    <p><a href="#add-product-form-<?php echo $a['formidable_form_id']; ?>" data-toggle="modal"><?php echo $a['link_text']; ?></a></p>
 
-    <div class="modal fade" id="add-product-form" tabindex="-1" role="dialog" aria-labelledby="add-product-modal-label" aria-hidden="true">
+    <div class="modal fade" id="add-product-form-<?php echo $a['formidable_form_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="add-product-modal-label" aria-hidden="true">
       <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
           <div class="modal-header">
