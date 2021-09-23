@@ -105,7 +105,7 @@
               <?php $location = get_field('google_map_marker_location'); ?>
               <?php if($location): ?>
                 <div class="marker" data-lat="<?php echo esc_attr($location['lat']); ?>" data-lng="<?php echo esc_attr($location['lng']); ?>">
-                  <h4><?php echo esc_html__('Truckn\' America', 'trucknamerica'); ?><br /><small><?php echo esc_html(get_the_title()); ?></small></h4>
+                  <h4><?php echo esc_html__('Truck\'n America', 'trucknamerica'); ?><br /><small><?php echo esc_html(get_the_title()); ?></small></h4>
                   <p class="map-address">
                     <span class="d-block"><?php echo esc_html(get_field('address_1')); ?></span>
                     <span class="d-block"><?php echo esc_html(get_field('address_2')); ?></span>
